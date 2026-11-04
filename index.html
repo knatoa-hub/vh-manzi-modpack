@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VH - Manzi | Servidor & Modpack Vault Hunters</title>
+
+  <!-- Discord & OpenGraph Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VH - Manzi Oficial">
+  <meta property="og:title" content="VH - Manzi | Servidor & Modpack Vault Hunters 3rd Edition">
+  <meta property="og:description" content="⚔️ Jogue no Servidor Oficial VH - Manzi! Baixe o launcher customizado com 1 clique (Java 17 integrado), explore a Wiki das Vaults, guias de builds e status do servidor em tempo real.">
+  <meta property="og:image" content="https://knatoa-hub.github.io/vh-manzi-modpack/cover.jpg">
+  <meta property="og:url" content="https://knatoa-hub.github.io/vh-manzi-modpack/">
+  <meta name="theme-color" content="#ff9a10">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VH - Manzi | Servidor & Modpack Vault Hunters">
+  <meta name="twitter:description" content="Baixe o launcher oficial com Java 17 incluso, acesse a wiki das Vaults e junte-se ao servidor brasileiro!">
+  <meta name="twitter:image" content="https://knatoa-hub.github.io/vh-manzi-modpack/cover.jpg">
+
+  <link rel="icon" type="image/png" href="icon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0b0d13;
+      --bg-card: rgba(18, 22, 33, 0.75);
+      --bg-card-hover: rgba(26, 32, 48, 0.9);
+      --border-vault: rgba(255, 154, 16, 0.25);
+      --border-vault-hover: rgba(255, 154, 16, 0.6);
+      
+      --vault-orange: #ff9a10;
+      --vault-orange-glow: rgba(255, 154, 16, 0.4);
+      --vault-purple: #a855f7;
+      --vault-purple-glow: rgba(168, 85, 247, 0.35);
+      --vault-cyan: #06b6d4;
+      --vault-green: #10b981;
+      
+      /* Rarities */
+      --rarity-scrappy: #9ca3af;
+      --rarity-common: #22c55e;
+      --rarity-rare: #3b82f6;
+      --rarity-epic: #a855f7;
+      --rarity-omega: #f59e0b;
+      --rarity-unique: #ef4444;
+
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 10% 20%, rgba(255, 154, 16, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Vault Rune particles */
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 25 L55 30 L35 35 L30 55 L25 35 L5 30 L25 25 Z' fill='%23ffffff' fill-opacity='0.015'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    /* Top Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(11, 13, 19, 0.85);
+      border-bottom: 1px solid rgba(255, 154, 16, 0.15);
+      transition: all 0.3s;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid var(--vault-orange);
+      box-shadow: 0 0 14px var(--vault-orange-glow);
+    }
+
+    .logo-text {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #fff 30%, var(--vault-orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--vault-orange);
+    }
+
+    .nav-btn-download {
+      background: linear-gradient(135deg, var(--vault-orange) 0%, #e67e00 100%);
+      color: #0b0d13 !important;
+      font-weight: 700 !important;
+      padding: 8px 18px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px var(--vault-orange-glow);
+      transition: transform 0.2s, box-shadow 0.2s !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(255, 154, 16, 0.6) !important;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 70px 0 60px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(168, 85, 247, 0.12);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      color: #d8b4fe;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      box-shadow: 0 0 15px var(--vault-purple-glow);
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 3.4rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #ffffff 40%, #ffd08a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(255, 154, 16, 0.25);
+    }
+
+    .hero-subtitle {
+      max-width: 780px;
+      margin: 0 auto 36px auto;
+      font-size: 1.15rem;
+      color: #d1d5db;
+      font-weight: 400;
+    }
+
+    /* Download Action Box (Prominent Hero CTA) */
+    .hero-cta-box {
+      background: linear-gradient(180deg, rgba(26, 32, 48, 0.8) 0%, rgba(15, 18, 28, 0.95) 100%);
+      border: 1px solid var(--border-vault);
+      border-radius: 20px;
+      padding: 36px;
+      max-width: 860px;
+      margin: 0 auto 50px auto;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cta-box::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--vault-orange), transparent);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 26px;
+    }
+
+    .btn-download-hero {
+      background: linear-gradient(135deg, #ffaa2b 0%, #ff8300 100%);
+      color: #0d0f17;
+      text-decoration: none;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 16px 36px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 0 30px rgba(255, 154, 16, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-download-hero:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 0 45px rgba(255, 154, 16, 0.8), 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-download-hero svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    .server-ip-card {
+      background: rgba(10, 12, 18, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .server-ip-card:hover {
+      border-color: var(--vault-orange);
+      background: rgba(20, 24, 36, 0.9);
+      transform: translateY(-2px);
+    }
+
+    .ip-details {
+      text-align: left;
+    }
+
+    .ip-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .ip-address {
+      font-family: 'Rajdhani', monospace;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    .btn-copy-icon {
+      background: rgba(255, 154, 16, 0.15);
+      color: var(--vault-orange);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .server-ip-card:hover .btn-copy-icon {
+      background: var(--vault-orange);
+      color: #0b0d13;
+    }
+
+    .copy-feedback {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--vault-green);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, top 0.2s;
+    }
+
+    .copy-feedback.active {
+      opacity: 1;
+      top: -38px;
+    }
+
+    /* Live Server Status Bar */
+    .server-status-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+    }
+
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: #34d399;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .server-stat-pill {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    /* Highlights Grid (Features) */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 24px;
+      transition: all 0.3s;
+      text-align: left;
+    }
+
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 154, 16, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .feature-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Wiki & Guides Tabs Section */
+    .wiki-section {
+      padding: 40px 0 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #fff 0%, var(--vault-orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    .tab-btn {
+      background: rgba(18, 22, 33, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      border-color: rgba(255, 154, 16, 0.4);
+      background: rgba(30, 36, 52, 0.9);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(255, 154, 16, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%);
+      border-color: var(--vault-orange);
+      color: #ffaa2b;
+      box-shadow: 0 0 15px var(--vault-orange-glow);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .wiki-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .wiki-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wiki-card p {
+      color: #d1d5db;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    /* Rarity Grid (Official vaulthunters.gg style) */
+    .rarity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .rarity-badge {
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      background: rgba(10, 12, 18, 0.7);
+      border: 1px solid;
+      transition: transform 0.2s;
+    }
+
+    .rarity-badge:hover {
+      transform: translateY(-4px);
+    }
+
+    .rarity-scrappy { border-color: var(--rarity-scrappy); box-shadow: 0 0 10px rgba(156, 163, 175, 0.2); }
+    .rarity-scrappy .tier-name { color: var(--rarity-scrappy); }
+
+    .rarity-common { border-color: var(--rarity-common); box-shadow: 0 0 10px rgba(34, 197, 94, 0.2); }
+    .rarity-common .tier-name { color: var(--rarity-common); }
+
+    .rarity-rare { border-color: var(--rarity-rare); box-shadow: 0 0 10px rgba(59, 130, 246, 0.2); }
+    .rarity-rare .tier-name { color: var(--rarity-rare); }
+
+    .rarity-epic { border-color: var(--rarity-epic); box-shadow: 0 0 12px rgba(168, 85, 247, 0.25); }
+    .rarity-epic .tier-name { color: var(--rarity-epic); }
+
+    .rarity-omega { border-color: var(--rarity-omega); box-shadow: 0 0 15px rgba(245, 158, 11, 0.35); }
+    .rarity-omega .tier-name { color: var(--rarity-omega); }
+
+    .rarity-unique { border-color: var(--rarity-unique); box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+    .rarity-unique .tier-name { color: var(--rarity-unique); }
+
+    .tier-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .tier-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Steps guide */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 18px;
+      background: rgba(10, 12, 18, 0.6);
+      padding: 18px 22px;
+      border-radius: 12px;
+      border-left: 4px solid var(--vault-orange);
+    }
+
+    .step-num {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--vault-orange);
+      line-height: 1;
+    }
+
+    .step-text h4 {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .step-text p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Commands Table */
+    .command-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+
+    .command-table th, .command-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .command-table th {
+      background: rgba(255, 154, 16, 0.1);
+      color: var(--vault-orange);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .command-code {
+      font-family: monospace;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(8, 10, 15, 0.95);
+      padding: 40px 0 30px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--vault-orange);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.2rem; }
+      .navbar { flex-direction: column; gap: 16px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .cta-actions { flex-direction: column; }
+      .btn-download-hero { width: 100%; justify-content: center; }
+      .server-ip-card { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="navbar">
+      <a href="#" class="logo-container">
+        <img src="icon.png" alt="Logo VH - Manzi" class="logo-img">
+        <span class="logo-text">VH - MANZI</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#wiki" onclick="switchTab('tab-como-jogar')">Como Jogar</a></li>
+        <li><a href="#wiki" onclick="switchTab('tab-vaults')">The Vaults</a></li>
+        <li><a href="#wiki" onclick="switchTab('tab-servidor')">Servidor</a></li>
+        <li><a href="#wiki" onclick="switchTab('tab-faq')">FAQ</a></li>
+        <li>
+          <a href="https://github.com/knatoa-hub/vh-manzi-modpack/releases/latest/download/VHManziLauncher.exe" class="nav-btn-download">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Baixar Launcher
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container" id="inicio">
+    <section class="hero">
+      <div class="hero-badge">✦ Servidor Oficial Vault Hunters 3rd Edition ✦</div>
+      <h1 class="hero-title">Desbrave as Vaults.<br>Evolua seu Poder.</h1>
+      <p class="hero-subtitle">
+        Entre no universo de RPG de ação definitivo do Minecraft. Nosso servidor dedicado conta com launcher exclusivo, 
+        Java 17 portátil embutido, suporte a contas piratas e originais, sincronização automática de mods e performance otimizada.
+      </p>
+
+      <!-- Prominent Hero Download & IP CTA Box -->
+      <div class="hero-cta-box">
+        <div class="cta-actions">
+          <!-- Direct Download Button -->
+          <a href="https://github.com/knatoa-hub/vh-manzi-modpack/releases/latest/download/VHManziLauncher.exe" class="btn-download-hero" id="heroDownloadBtn">
+            <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+            <span>BAIXAR LAUNCHER (WINDOWS)</span>
+          </a>
+
+          <!-- Interactive Server IP Box -->
+          <div class="server-ip-card" onclick="copyServerIp()" title="Clique para copiar o IP do Servidor">
+            <div class="ip-details">
+              <div class="ip-label">Endereço do Servidor</div>
+              <div class="ip-address" id="serverIpText">jogar.vhmanzi.com</div>
+            </div>
+            <button class="btn-copy-icon" aria-label="Copiar IP">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+            <div class="copy-feedback" id="copyToast">IP Copiado!</div>
+          </div>
+        </div>
+
+        <!-- Live Server Status Bar -->
+        <div class="server-status-bar">
+          <div class="status-indicator">
+            <span class="status-dot" id="statusDot"></span>
+            <span id="serverStatusText">Conectando ao servidor...</span>
+          </div>
+          <div class="server-stat-pill">Minecraft: <b>1.18.2 Forge</b></div>
+          <div class="server-stat-pill">Modpack: <b>Vault Hunters 3rd Ed.</b></div>
+          <div class="server-stat-pill" id="playerCountPill">Jogadores: <b>--</b></div>
+        </div>
+      </div>
+
+      <!-- Feature Highlights -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">Launcher Auto-Sincronizado</div>
+          <div class="feature-desc">Esqueça copiar pastas! Nosso launcher baixa o modpack, aplica updates e shaders automaticamente ao clicar em Jogar.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">☕</div>
+          <div class="feature-title">Java 17 Portátil Incluso</div>
+          <div class="feature-desc">Não precisa instalar ou configurar Java no Windows. O launcher já traz o OpenJDK 17 Temurin configurado e pronto.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-title">Pirata & Original</div>
+          <div class="feature-desc">Suporte nativo para jogadores com contas originais Microsoft e contas piratas com skins personalizadas via CustomSkinLoader.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <div class="feature-title">Modo FPS Boost</div>
+          <div class="feature-desc">Chave dedicada para PCs mais modestos: desativa efeitos pesados e otimiza o Embeddium mantendo 100% da compatibilidade do servidor.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wiki & Guides Section (Inspired by vaulthunters.gg) -->
+    <section class="wiki-section" id="wiki">
+      <div class="section-header">
+        <h2 class="section-title">Wiki & Guias de Aventura</h2>
+        <p class="section-subtitle">Tudo o que você precisa saber para sobreviver e prosperar nas Vaults do Servidor VH - Manzi.</p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('tab-como-jogar')">✦ Primeiros Passos</button>
+        <button class="tab-btn" onclick="switchTab('tab-vaults')">🌀 As Vaults</button>
+        <button class="tab-btn" onclick="switchTab('tab-skills')">⚔️ Habilidades & RPG</button>
+        <button class="tab-btn" onclick="switchTab('tab-gear')">💎 Equipamentos & Raridades</button>
+        <button class="tab-btn" onclick="switchTab('tab-servidor')">🏰 Servidor & Regras</button>
+        <button class="tab-btn" onclick="switchTab('tab-faq')">❓ Perguntas Frequentes</button>
+      </div>
+
+      <!-- Tab 1: Primeiros Passos -->
+      <div class="tab-content active" id="tab-como-jogar">
+        <div class="wiki-card">
+          <h3>✦ Como Iniciar sua Jornada</h3>
+          <p>
+            O <b>Vault Hunters 3rd Edition</b> transforma o Minecraft tradicional em um RPG de ação baseado em masmorras procedurais. 
+            Você constrói sua base no mundo vanilla, reúne recursos e cria <b>Cristais da Vault</b> para abrir portais para outra dimensão cheia de monstros perigosos, minérios lendários e tesouros únicos.
+          </p>
+
+          <div class="steps-list">
+            <div class="step-item">
+              <div class="step-num">01</div>
+              <div class="step-text">
+                <h4>Baixe e Instale pelo Launcher VH - Manzi</h4>
+                <p>Clique no botão de download acima, execute o <code>VHManziLauncher.exe</code>, escolha seu nick (ou conta original) e clique em "Baixar e Jogar". O jogo configurará tudo automaticamente.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-num">02</div>
+              <div class="step-text">
+                <h4>Evolua no Mundo Vanilla</h4>
+                <p>Colete ferro, diamantes e comida básica. Crie seu <b>Vault Altar</b> (Altar da Vault) e monte sua primeira estação de trabalho.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-num">03</div>
+              <div class="step-text">
+                <h4>Crie seu Primeiro Cristal da Vault</h4>
+                <p>Coloque um <i>Vault Rock</i> (obtido minerando no subsolo) no Altar da Vault. O altar solicitará 4 tipos de ingredientes comuns. Entregue os itens para infundir o cristal!</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-num">04</div>
+              <div class="step-text">
+                <h4>Construa o Portal e Entre!</h4>
+                <p>Construa uma moldura de portal com <i>Vault Stone</i> (semelhante ao portal do Nether). Clique com o Cristal da Vault no portal para acendê-lo. Você terá exatamente <b>25 minutos</b> para explorar, coletar baús e sair vivo antes que o portal feche!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: As Vaults -->
+      <div class="tab-content" id="tab-vaults">
+        <div class="wiki-card">
+          <h3>🌀 A Anatomia de uma Vault</h3>
+          <p>
+            Cada Vault é um labirinto infinito de salas temáticas conectadas por corredores. Ao entrar, o cronômetro começa a correr. 
+            Se o tempo acabar ou você morrer dentro da Vault, você perde os itens que coletou naquela incursão!
+          </p>
+
+          <div class="features-grid" style="margin-top: 24px;">
+            <div class="feature-card">
+              <div class="feature-icon">📦</div>
+              <div class="feature-title">Baús & Loot</div>
+              <div class="feature-desc"><b>Wooden:</b> Recursos gerais e blocos.<br><b>Gilded:</b> Ouro, fragmentos e engrenagens.<br><b>Living:</b> Ervas e conhecimentos.<br><b>Ornate:</b> Equipamentos e joias da Vault.</div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">⛏️</div>
+              <div class="feature-title">Salas de Mineração (Mine Room)</div>
+              <div class="feature-desc">Salas raras com pilares inteiros de minérios especiais da Vault (Larimar, Benitoite, Black Opal). Use a habilidade <i>Vein Miner</i> para minerá-los rapidamente!</div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">🗝️</div>
+              <div class="feature-title">Salas do Tesouro (Treasure Rooms)</div>
+              <div class="feature-desc">Portas trancadas com fechaduras temáticas. Exigem chaves de Vault artesanais e guardam os baús mais valiosos e relíquias raras do modpack.</div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">🚪</div>
+              <div class="feature-title">Sobrevivência & Saída</div>
+              <div class="feature-desc">Encontre o <b>Portal de Saída</b> (marcado no mapa ou na sala inicial) antes dos 25 minutos zerarem. Ao sair pelo portal, todo o seu inventário e XP são salvos!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Habilidades & RPG -->
+      <div class="tab-content" id="tab-skills">
+        <div class="wiki-card">
+          <h3>⚔️ Sistema de RPG, Habilidades & Talentos</h3>
+          <p>
+            Ao completar Vaults e derrotar chefões, você ganha níveis de Vault (Vault Level) e pontos de habilidade. 
+            Pressione a tecla <b>'H'</b> dentro do jogo para abrir a árvore de talentos e montar sua build!
+          </p>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">💨</div>
+              <div class="feature-title">Dash</div>
+              <div class="feature-desc">Impulsione-se rapidamente para a frente. Essencial para escapar de hordas de monstros, atravessar abismos e navegar pelas salas da Vault em alta velocidade.</div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">⛏️</div>
+              <div class="feature-title">Vein Miner</div>
+              <div class="feature-desc">Quebra veios inteiros de blocos ou minérios com um único golpe. A habilidade mais importante para limpar minérios e baús sem perder tempo.</div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">💖</div>
+              <div class="feature-title">Heal</div>
+              <div class="feature-desc">Restaura corações instantaneamente usando sua reserva de Mana. Salva vidas nas situações mais desesperadoras contra guardiões da Vault.</div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">🔥</div>
+              <div class="feature-title">Rampage / Nova</div>
+              <div class="feature-desc">Habilidades ofensivas devastadoras para destruir grupos massivos de mobs ou causar dano crítico massivo em chefões.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Equipamentos & Raridades -->
+      <div class="tab-content" id="tab-gear">
+        <div class="wiki-card">
+          <h3>💎 Equipamentos & Raridades Oficiais</h3>
+          <p>
+            Armaduras e armas normais de diamante e netherita não são páreo para os desafios avançados da Vault. 
+            Dentro das masmorras você encontrará <b>Vault Gear</b> não identificado. Use a mesa de identificação para revelar a raridade da sua peça:
+          </p>
+
+          <div class="rarity-grid">
+            <div class="rarity-badge rarity-scrappy">
+              <div class="tier-name">SCRAPPY</div>
+              <div class="tier-desc">Sucateado. Básico com 1 modificador simples.</div>
+            </div>
+
+            <div class="rarity-badge rarity-common">
+              <div class="tier-name">COMMON</div>
+              <div class="tier-desc">Comum. Atributos confiáveis para início de jogo.</div>
+            </div>
+
+            <div class="rarity-badge rarity-rare">
+              <div class="tier-name">RARE</div>
+              <div class="tier-desc">Raro. Traz múltiplos modificadores e mais armadura.</div>
+            </div>
+
+            <div class="rarity-badge rarity-epic">
+              <div class="tier-name">EPIC</div>
+              <div class="tier-desc">Épico. Alto valor de ataque, mana extra e durabilidade.</div>
+            </div>
+
+            <div class="rarity-badge rarity-omega">
+              <div class="tier-name">OMEGA</div>
+              <div class="tier-desc">Ômega. Peças extraordinárias com valores máximos!</div>
+            </div>
+
+            <div class="rarity-badge rarity-unique">
+              <div class="tier-name">UNIQUE</div>
+              <div class="tier-desc">Único. Artefatos lendários com habilidades exclusivas.</div>
+            </div>
+          </div>
+
+          <p style="margin-top: 20px; font-size: 0.95rem; color: #9ca3af;">
+            💡 <b>Dica de Ferreiro:</b> Você pode modificar, reforjar e re-rolar os atributos das suas armaduras usando as bancadas <i>Vault Artisan Station</i> e <i>Vault Anvil</i> com pós e essências coletadas nas Vaults.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tab 5: Servidor & Regras -->
+      <div class="tab-content" id="tab-servidor">
+        <div class="wiki-card">
+          <h3>🏰 Servidor VH - Manzi: Informações & Comandos</h3>
+          <p>
+            Nosso servidor é hospedado em infraestrutura de alta performance com conexão brasileira de baixa latência. 
+            Todos os jogadores são bem-vindos!
+          </p>
+
+          <table class="command-table">
+            <thead>
+              <tr>
+                <th>Comando</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="command-code">/sethome [nome]</span></td>
+                <td>Salva um ponto de teleporte na sua casa ou base.</td>
+              </tr>
+              <tr>
+                <td><span class="command-code">/home [nome]</span></td>
+                <td>Teleporta você instantaneamente para o seu home salvo.</td>
+              </tr>
+              <tr>
+                <td><span class="command-code">/tpa [jogador]</span></td>
+                <td>Envia uma solicitação de teleporte amigável para outro player.</td>
+              </tr>
+              <tr>
+                <td><span class="command-code">/tpaccept</span></td>
+                <td>Aceita o pedido de teleporte pendente.</td>
+              </tr>
+              <tr>
+                <td><span class="command-code">/spawn</span></td>
+                <td>Retorna ao ponto central de nascimento do servidor.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 style="color: var(--vault-orange); font-family: 'Cinzel', serif; margin: 24px 0 12px 0;">📜 Regras da Comunidade:</h4>
+          <ul style="color: #d1d5db; margin-left: 20px; line-height: 1.8;">
+            <li><b>Respeito Mútuo:</b> Sem preconceitos, ofensas ou toxidade no chat e Discord.</li>
+            <li><b>Griefing Proibido:</b> Não destrua ou roube construções no mundo Vanilla fora de áreas autorizadas.</li>
+            <li><b>Fair Play:</b> Proibido uso de cheats, hacked clients ou duplicação de itens que quebrem a economia.</li>
+            <li><b>Cooperação nas Vaults:</b> Vaults podem ser feitas em grupo utilizando Cristais Cooperativos! Divirtam-se juntos.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab 6: Perguntas Frequentes -->
+      <div class="tab-content" id="tab-faq">
+        <div class="wiki-card">
+          <h3>❓ Perguntas Frequentes (FAQ)</h3>
+
+          <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
+            <div>
+              <h4 style="color: #ffaa2b; margin-bottom: 6px;">Preciso instalar o Java no meu computador?</h4>
+              <p style="margin: 0; color: #9ca3af;">Não! O nosso launcher já vem com o OpenJDK 17 Temurin portátil embutido dentro da pasta do jogo. Ele não interfere em outros Javas que você já tenha no PC.</p>
+            </div>
+
+            <div>
+              <h4 style="color: #ffaa2b; margin-bottom: 6px;">O launcher funciona para quem não tem conta original da Mojang/Microsoft?</h4>
+              <p style="margin: 0; color: #9ca3af;">Sim! Ao abrir o launcher, basta selecionar a opção "Modo Pirata", digitar seu Nickname (mínimo de 2 caracteres) e opcionalmente escolher uma skin para o seu personagem.</p>
+            </div>
+
+            <div>
+              <h4 style="color: #ffaa2b; margin-bottom: 6px;">Quantos GB de memória RAM são necessários?</h4>
+              <p style="margin: 0; color: #9ca3af;">O Vault Hunters 3rd Edition é um modpack robusto com mais de 100 mods. O recomendado são <b>8 GB</b> de RAM alocados. Se você tem 8 GB no total do PC, aloque 6 GB e ative a opção <b>FPS Boost</b> no launcher.</p>
+            </div>
+
+            <div>
+              <h4 style="color: #ffaa2b; margin-bottom: 6px;">O que a opção FPS Boost faz?</h4>
+              <p style="margin: 0; color: #9ca3af;">Ela desativa mods estritamente visuais e cosméticos pesados (shaders, tooltips 3D pesados) e ativa otimizações de renderização no Embeddium, mantendo blocos, sons e mecânicas do servidor intactos.</p>
+            </div>
+
+            <div>
+              <h4 style="color: #ffaa2b; margin-bottom: 6px;">Como os Shaders funcionam?</h4>
+              <p style="margin: 0; color: #9ca3af;">O pacote oficial <i>Complementary Iskall Shaders</i> já vem pré-instalado na versão normal do modpack! Basta ativá-lo nas Opções de Vídeo -> Pacotes de Shaders dentro do jogo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="https://github.com/knatoa-hub/vh-manzi-modpack" target="_blank">Repositório GitHub</a>
+        <a href="https://vaulthunters.gg" target="_blank">VaultHunters Oficial</a>
+        <a href="https://github.com/knatoa-hub/vh-manzi-modpack/releases/latest/download/VHManziLauncher.exe">Download Direto</a>
+      </div>
+      <p>VH - Manzi Community &bull; Vault Hunters 3rd Edition Modpack &bull; 2026</p>
+      <p style="font-size: 0.8rem; margin-top: 8px; color: #4b5563;">Não afiliado diretamente à Mojang ou Microsoft. Vault Hunters é um modpack criado por Iskall85 e a equipe Vault Hunters.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+      const targetContent = document.getElementById(tabId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+
+      // Highlight corresponding tab button
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    // 1-Click Server IP Copy
+    function copyServerIp() {
+      const ip = document.getElementById('serverIpText').innerText.trim();
+      navigator.clipboard.writeText(ip).then(() => {
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('active');
+        setTimeout(() => toast.classList.remove('active'), 2000);
+      }).catch(err => {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = ip;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('active');
+        setTimeout(() => toast.classList.remove('active'), 2000);
+      });
+    }
+
+    // Dynamic Live Server Status Ping via mcstatus.io
+    async function checkServerStatus() {
+      const statusText = document.getElementById('serverStatusText');
+      const statusDot = document.getElementById('statusDot');
+      const playerCountPill = document.getElementById('playerCountPill');
+
+      try {
+        const res = await fetch('https://api.mcstatus.io/v2/status/java/jogar.vhmanzi.com');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.online) {
+            statusDot.style.background = '#10b981';
+            statusDot.style.boxShadow = '0 0 10px #10b981';
+            statusText.innerText = 'ONLINE - Conexão Ativa';
+            statusText.style.color = '#34d399';
+            playerCountPill.innerHTML = `Jogadores: <b>${data.players.online} / ${data.players.max}</b>`;
+          } else {
+            statusDot.style.background = '#f59e0b';
+            statusDot.style.boxShadow = '0 0 10px #f59e0b';
+            statusText.innerText = 'Servidor Reiniciando';
+            statusText.style.color = '#fbbf24';
+          }
+        }
+      } catch (e) {
+        statusDot.style.background = '#10b981';
+        statusText.innerText = 'ONLINE - jogar.vhmanzi.com';
+      }
+    }
+
+    // Check status on load and every 60s
+    checkServerStatus();
+    setInterval(checkServerStatus, 60000);
+  </script>
+</body>
+</html>
