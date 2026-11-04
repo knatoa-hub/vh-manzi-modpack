@@ -22,7 +22,7 @@
 
   <link rel="icon" type="image/png" href="icon.png">
   
-  <!-- Fonts: Inter for Clean Data & Rajdhani / Cinzel for Clean RPG Hierarchy -->
+  <!-- Fonts: Inter & Cinzel / Rajdhani -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
@@ -77,7 +77,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Vector Background Grid */
     .bg-grid {
       position: fixed;
       top: 0;
@@ -92,7 +91,6 @@
       z-index: 0;
     }
 
-    /* Container */
     .container {
       max-width: 1260px;
       margin: 0 auto;
@@ -101,12 +99,12 @@
       z-index: 1;
     }
 
-    /* Top Navigation Header */
+    /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(10, 12, 16, 0.92);
+      background: rgba(10, 12, 16, 0.94);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-subtle);
     }
@@ -151,7 +149,7 @@
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       list-style: none;
     }
 
@@ -160,9 +158,9 @@
       border: 1px solid transparent;
       color: var(--text-secondary);
       font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
-      padding: 8px 14px;
+      padding: 8px 12px;
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s;
@@ -179,17 +177,49 @@
       border-color: rgba(255, 154, 16, 0.3);
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Language Switcher Pill */
+    .btn-lang-switch {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-lang-switch:hover {
+      border-color: var(--vault-orange);
+      background: rgba(255, 154, 16, 0.12);
+    }
+
+    .lang-active-text {
+      color: var(--vault-orange);
+    }
+
     .nav-btn-download {
       background: linear-gradient(135deg, var(--vault-orange) 0%, #e67e00 100%);
       color: #0d0f14 !important;
       font-weight: 700 !important;
-      font-size: 0.9rem;
-      padding: 9px 18px;
+      font-size: 0.88rem;
+      padding: 8px 16px;
       border-radius: 8px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       box-shadow: 0 0 16px var(--vault-orange-glow);
       transition: transform 0.2s, box-shadow 0.2s;
     }
@@ -199,7 +229,7 @@
       box-shadow: 0 0 24px rgba(255, 154, 16, 0.6);
     }
 
-    /* Views Framework */
+    /* Views */
     .view-section {
       display: none;
       padding: 40px 0 80px 0;
@@ -215,9 +245,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ========================================================
-       VIEW: HOME / HERO
-       ======================================================== */
+    /* Home View */
     .hero-banner {
       padding: 50px 0 40px 0;
       text-align: center;
@@ -259,7 +287,6 @@
       line-height: 1.7;
     }
 
-    /* Control Panel Box (Download + Real-Time Status) */
     .panel-dock {
       background: var(--bg-surface);
       border: 1px solid var(--border-vault);
@@ -371,7 +398,6 @@
       top: -40px;
     }
 
-    /* Live Server Status Bar (Accurate Direct Query) */
     .dock-status-bar {
       border-top: 1px solid var(--border-subtle);
       padding-top: 18px;
@@ -406,7 +432,6 @@
       font-size: 0.8rem;
     }
 
-    /* Modules Quick Grid */
     .compendium-modules-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -459,9 +484,7 @@
       line-height: 1.6;
     }
 
-    /* ========================================================
-       VIEW: GEAR COMPENDIUM (STYLE VAULTHUNTERS.GG/GEAR)
-       ======================================================== */
+    /* Gear Section */
     .compendium-head {
       margin-bottom: 30px;
       text-align: left;
@@ -482,7 +505,6 @@
       max-width: 860px;
     }
 
-    /* Gear Selection Navigation (vaulthunters.gg layout) */
     .gear-slot-tabs {
       display: flex;
       gap: 8px;
@@ -522,7 +544,6 @@
       box-shadow: 0 0 12px var(--vault-orange-glow);
     }
 
-    /* Filters Bar */
     .gear-filter-bar {
       display: flex;
       gap: 16px;
@@ -584,7 +605,6 @@
       color: var(--vault-orange);
     }
 
-    /* Gear Data Table (vaulthunters.gg tabular layout) */
     .data-table-container {
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
@@ -667,7 +687,6 @@
       font-weight: 600;
     }
 
-    /* Rarity Indicators Bar */
     .rarity-legend-bar {
       display: flex;
       gap: 12px;
@@ -696,9 +715,7 @@
     .pill-omega { background: rgba(245, 158, 11, 0.15); color: var(--rarity-omega); border: 1px solid var(--rarity-omega); }
     .pill-unique { background: rgba(239, 68, 68, 0.15); color: var(--rarity-unique); border: 1px solid var(--rarity-unique); }
 
-    /* ========================================================
-       VIEW: SERVER SYSTEMS & MECHANICS (VH - MANZI TECHNICAL)
-       ======================================================== */
+    /* System Grid */
     .system-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -760,37 +777,6 @@
       font-size: 0.85rem;
     }
 
-    .alert-banner-box {
-      background: rgba(255, 154, 16, 0.08);
-      border-left: 3px solid var(--vault-orange);
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      margin: 16px 0;
-      font-size: 0.88rem;
-      color: #f3f4f6;
-    }
-
-    /* Command Table */
-    .full-command-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 14px;
-    }
-
-    .full-command-table th, .full-command-table td {
-      padding: 10px 14px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 0.88rem;
-    }
-
-    .full-command-table th {
-      color: var(--text-muted);
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      font-weight: 700;
-    }
-
     /* Footer */
     footer {
       border-top: 1px solid var(--border-subtle);
@@ -819,7 +805,6 @@
       color: var(--vault-orange);
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .hero-heading { font-size: 2.3rem; }
       .nav-menu { display: none; }
@@ -842,17 +827,25 @@
       </a>
 
       <ul class="nav-menu">
-        <li><button class="nav-item-btn active" id="btn-nav-home" onclick="navigateTab('home')">Início</button></li>
-        <li><button class="nav-item-btn" id="btn-nav-gear" onclick="navigateTab('gear')">Equipamentos & Modificadores</button></li>
-        <li><button class="nav-item-btn" id="btn-nav-skills" onclick="navigateTab('skills')">Habilidades & Talentos</button></li>
-        <li><button class="nav-item-btn" id="btn-nav-vaults" onclick="navigateTab('vaults')">Mecânicas da Vault</button></li>
-        <li><button class="nav-item-btn" id="btn-nav-server" onclick="navigateTab('server')">Servidor & Regras</button></li>
-        <li><button class="nav-item-btn" id="btn-nav-download" onclick="navigateTab('download')">Instalação & Launcher</button></li>
+        <li><button class="nav-item-btn active" id="btn-nav-home" onclick="navigateTab('home')" data-i18n="nav_home">Início</button></li>
+        <li><button class="nav-item-btn" id="btn-nav-gear" onclick="navigateTab('gear')" data-i18n="nav_gear">Equipamentos & Modificadores</button></li>
+        <li><button class="nav-item-btn" id="btn-nav-skills" onclick="navigateTab('skills')" data-i18n="nav_skills">Habilidades & Talentos</button></li>
+        <li><button class="nav-item-btn" id="btn-nav-vaults" onclick="navigateTab('vaults')" data-i18n="nav_vaults">Mecânicas da Vault</button></li>
+        <li><button class="nav-item-btn" id="btn-nav-server" onclick="navigateTab('server')" data-i18n="nav_server">Servidor & Regras</button></li>
+        <li><button class="nav-item-btn" id="btn-nav-download" onclick="navigateTab('download')" data-i18n="nav_download">Instalação & Launcher</button></li>
       </ul>
 
-      <a href="https://github.com/knatoa-hub/vh-manzi-modpack/releases/latest/download/VHManziLauncher.exe" class="nav-btn-download">
-        Baixar Launcher
-      </a>
+      <div class="header-actions">
+        <!-- Language Switcher Pill -->
+        <button id="langToggleBtn" class="btn-lang-switch" onclick="toggleLanguage()" title="Switch Language / Alternar Idioma">
+          <span>🌐</span>
+          <span id="langTextIndicator"><b class="lang-active-text">PT</b> | EN</span>
+        </button>
+
+        <a href="https://github.com/knatoa-hub/vh-manzi-modpack/releases/latest/download/VHManziLauncher.exe" class="nav-btn-download" data-i18n="btn_nav_download">
+          Baixar Launcher
+        </a>
+      </div>
     </div>
   </header>
 
@@ -862,9 +855,9 @@
   <section id="view-home" class="view-section active">
     <div class="container">
       <div class="hero-banner">
-        <div class="hero-meta-tag">Servidor Oficial &bull; Vault Hunters 3rd Edition</div>
-        <h1 class="hero-heading">Compêndio Técnico<br>& Servidor Oficial</h1>
-        <p class="hero-lead">
+        <div class="hero-meta-tag" data-i18n="hero_tag">Servidor Oficial &bull; Vault Hunters 3rd Edition</div>
+        <h1 class="hero-heading" data-i18n="hero_title">Compêndio Técnico<br>& Servidor Oficial</h1>
+        <p class="hero-lead" data-i18n="hero_lead">
           Plataforma de consulta oficial do servidor VH - Manzi. Acesse tabelas completas de atributos de equipamentos, 
           calculadora de modificadores, árvores de habilidades e especificações de comandos e regras ativas no servidor.
         </p>
@@ -873,20 +866,20 @@
         <div class="panel-dock">
           <div class="dock-actions">
             <!-- Launcher Download Button -->
-            <a href="https://github.com/knatoa-hub/vh-manzi-modpack/releases/latest/download/VHManziLauncher.exe" class="btn-main-download">
+            <a href="https://github.com/knatoa-hub/vh-manzi-modpack/releases/latest/download/VHManziLauncher.exe" class="btn-main-download" data-i18n="btn_hero_download">
               BAIXAR LAUNCHER OFICIAL (WINDOWS)
             </a>
 
             <!-- Server IP Card -->
             <div class="server-connect-card" onclick="copyIpAddress()" title="Clique para copiar">
               <div class="connect-meta">
-                <div class="connect-label">Endereço de Conexão</div>
+                <div class="connect-label" data-i18n="lbl_server_addr">Endereço de Conexão</div>
                 <div class="connect-ip" id="serverIpLabel">jogar.vhmanzi.com</div>
               </div>
               <div class="btn-copy-box">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               </div>
-              <div class="copy-notification" id="copyBadge">Copiado!</div>
+              <div class="copy-notification" id="copyBadge" data-i18n="copied_toast">Copiado!</div>
             </div>
           </div>
 
@@ -894,11 +887,11 @@
           <div class="dock-status-bar">
             <div class="status-pulse-group">
               <span class="status-dot-active" id="liveDot"></span>
-              <span id="liveStatusText">Verificando status do servidor...</span>
+              <span id="liveStatusText" data-i18n="status_checking">Verificando status do servidor...</span>
             </div>
             <div class="status-pill">Minecraft: <b>1.18.2 Forge</b></div>
             <div class="status-pill" id="livePlayerPill">Jogadores: <b>Conectando...</b></div>
-            <div class="status-pill">Java: <b>OpenJDK 17 Portátil</b></div>
+            <div class="status-pill" data-i18n="pill_portable_java">Java: <b>OpenJDK 17 Portátil</b></div>
           </div>
         </div>
 
@@ -906,34 +899,34 @@
         <div class="compendium-modules-grid">
           <div class="module-card" onclick="navigateTab('gear')">
             <div class="module-header">
-              <span class="module-tag">Database</span>
+              <span class="module-tag" data-i18n="mod_tag_db">Database</span>
             </div>
-            <h3>Equipamentos & Modificadores</h3>
-            <p>Tabelas detalhadas de valores Implícitos, Prefixos e Sufixos de cada peça de arma, armadura e utilitário do modpack.</p>
+            <h3 data-i18n="mod_gear_title">Equipamentos & Modificadores</h3>
+            <p data-i18n="mod_gear_desc">Tabelas detalhadas de valores Implícitos, Prefixos e Sufixos de cada peça de arma, armadura e utilitário do modpack.</p>
           </div>
 
           <div class="module-card" onclick="navigateTab('skills')">
             <div class="module-header">
-              <span class="module-tag">RPG System</span>
+              <span class="module-tag" data-i18n="mod_tag_rpg">RPG System</span>
             </div>
-            <h3>Habilidades & Talentos</h3>
-            <p>Especializações de Dash, Vein Miner, Heal, Rampage e talentos passivos de velocidade, força e mana.</p>
+            <h3 data-i18n="mod_skills_title">Habilidades & Talentos</h3>
+            <p data-i18n="mod_skills_desc">Especializações de Dash, Vein Miner, Heal, Rampage e talentos passivos de velocidade, força e mana.</p>
           </div>
 
           <div class="module-card" onclick="navigateTab('vaults')">
             <div class="module-header">
-              <span class="module-tag">Dungeons</span>
+              <span class="module-tag" data-i18n="mod_tag_dung">Dungeons</span>
             </div>
-            <h3>Mecânicas da Vault</h3>
-            <p>Infusão de Cristais, aplicação de Catalisadores, salas raras (Mine, Treasure, Omega) e tabelas de baús.</p>
+            <h3 data-i18n="mod_vaults_title">Mecânicas da Vault</h3>
+            <p data-i18n="mod_vaults_desc">Infusão de Cristais, aplicação de Catalisadores, salas raras (Mine, Treasure, Omega) e tabelas de baús.</p>
           </div>
 
           <div class="module-card" onclick="navigateTab('server')">
             <div class="module-header">
-              <span class="module-tag">Server Core</span>
+              <span class="module-tag" data-i18n="mod_tag_core">Server Core</span>
             </div>
-            <h3>Mecânicas do Servidor</h3>
-            <p>Autenticação por IP, proteção de terreno FLAN ($1/bloco), ranks com warmup zero de teleporte e reinícios agendados.</p>
+            <h3 data-i18n="mod_server_title">Mecânicas do Servidor</h3>
+            <p data-i18n="mod_server_desc">Autenticação por IP, proteção de terreno FLAN ($1/bloco), ranks com warmup zero de teleporte e reinícios agendados.</p>
           </div>
         </div>
       </div>
@@ -946,25 +939,16 @@
   <section id="view-gear" class="view-section">
     <div class="container">
       <div class="compendium-head">
-        <h2 class="compendium-title">Base de Dados de Equipamentos (Gear)</h2>
-        <p class="compendium-desc">
+        <h2 class="compendium-title" data-i18n="gear_head_title">Base de Dados de Equipamentos (Gear)</h2>
+        <p class="compendium-desc" data-i18n="gear_head_desc">
           Consulte todos os atributos e limites de rolagem possíveis para cada peça de Vault Gear. 
           Use os filtros para inspecionar valores Implícitos (fixos), Prefixos (atributos primários) e Sufixos (atributos secundários).
         </p>
       </div>
 
       <!-- Gear Slot Navigation -->
-      <div class="gear-slot-tabs">
-        <button class="gear-tab-btn active" data-slot="helmet" onclick="selectGearSlot('helmet')">Capacete (Helmet)</button>
-        <button class="gear-tab-btn" data-slot="chestplate" onclick="selectGearSlot('chestplate')">Peitoral (Chestplate)</button>
-        <button class="gear-tab-btn" data-slot="leggings" onclick="selectGearSlot('leggings')">Calças (Leggings)</button>
-        <button class="gear-tab-btn" data-slot="boots" onclick="selectGearSlot('boots')">Botas (Boots)</button>
-        <button class="gear-tab-btn" data-slot="sword" onclick="selectGearSlot('sword')">Espada (Sword)</button>
-        <button class="gear-tab-btn" data-slot="axe" onclick="selectGearSlot('axe')">Machado (Axe)</button>
-        <button class="gear-tab-btn" data-slot="wand" onclick="selectGearSlot('wand')">Varinha (Wand)</button>
-        <button class="gear-tab-btn" data-slot="shield" onclick="selectGearSlot('shield')">Escudo (Shield)</button>
-        <button class="gear-tab-btn" data-slot="idol" onclick="selectGearSlot('idol')">Ídolo (Vault Idol)</button>
-        <button class="gear-tab-btn" data-slot="magnet" onclick="selectGearSlot('magnet')">Ímã (Vault Magnet)</button>
+      <div class="gear-slot-tabs" id="gearSlotsContainer">
+        <!-- Generated dynamically with localized names -->
       </div>
 
       <!-- Search & Filters -->
@@ -973,10 +957,10 @@
           <input type="text" id="gearSearchInput" placeholder="Filtrar por nome do modificador (ex: Cooldown, Armor, Copiously, Mana)..." oninput="filterGearTable()">
         </div>
         <div class="filter-type-group">
-          <button class="filter-chip active" data-type="all" onclick="setModifierTypeFilter('all')">Todos</button>
-          <button class="filter-chip" data-type="implicit" onclick="setModifierTypeFilter('implicit')">Implícitos</button>
-          <button class="filter-chip" data-type="prefix" onclick="setModifierTypeFilter('prefix')">Prefixos</button>
-          <button class="filter-chip" data-type="suffix" onclick="setModifierTypeFilter('suffix')">Sufixos</button>
+          <button class="filter-chip active" data-type="all" onclick="setModifierTypeFilter('all')" data-i18n="filter_all">Todos</button>
+          <button class="filter-chip" data-type="implicit" onclick="setModifierTypeFilter('implicit')" data-i18n="filter_implicit">Implícitos</button>
+          <button class="filter-chip" data-type="prefix" onclick="setModifierTypeFilter('prefix')" data-i18n="filter_prefix">Prefixos</button>
+          <button class="filter-chip" data-type="suffix" onclick="setModifierTypeFilter('suffix')" data-i18n="filter_suffix">Sufixos</button>
         </div>
       </div>
 
@@ -985,10 +969,10 @@
         <table class="compendium-table">
           <thead>
             <tr>
-              <th style="width: 25%;">Modificador</th>
-              <th style="width: 15%;">Tipo</th>
-              <th style="width: 35%;">Valores & Escalas (Tier 1 &bull; Tier 2 &bull; Tier 3)</th>
-              <th style="width: 25%;">Descrição do Efeito</th>
+              <th style="width: 25%;" data-i18n="th_modifier">Modificador</th>
+              <th style="width: 15%;" data-i18n="th_type">Tipo</th>
+              <th style="width: 35%;" data-i18n="th_scales">Valores & Escalas (Tier 1 &bull; Tier 2 &bull; Tier 3)</th>
+              <th style="width: 25%;" data-i18n="th_effect">Descrição do Efeito</th>
             </tr>
           </thead>
           <tbody id="gearTableBody">
@@ -999,7 +983,7 @@
 
       <!-- Rarity Reference Legend -->
       <div class="rarity-legend-bar">
-        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Raridades de Identificação:</span>
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;" data-i18n="rarity_legend_title">Raridades de Identificação:</span>
         <span class="rarity-pill pill-scrappy">Scrappy (Sucata)</span>
         <span class="rarity-pill pill-common">Common (Comum)</span>
         <span class="rarity-pill pill-rare">Rare (Raro)</span>
@@ -1016,94 +1000,15 @@
   <section id="view-skills" class="view-section">
     <div class="container">
       <div class="compendium-head">
-        <h2 class="compendium-title">Árvore de Habilidades & Talentos</h2>
-        <p class="compendium-desc">
+        <h2 class="compendium-title" data-i18n="skills_head_title">Árvore de Habilidades & Talentos</h2>
+        <p class="compendium-desc" data-i18n="skills_head_desc">
           Dentro do jogo, pressione a tecla <b>'H'</b> para acessar a interface de habilidades ativas (Abilities) e passivas (Talents). 
           Cada nível de Vault conquistado concede pontos de habilidade para montar sua build.
         </p>
       </div>
 
-      <div class="system-grid">
-        <!-- Dash -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Dash</span> &bull; Mobilidade Tática</div>
-          <div class="system-content">
-            <p>Impulso direcional de alta velocidade. Essencial para travessia de salas, esquiva de ataques e combate vertical.</p>
-            <ul>
-              <li><b>Base:</b> Impulso frontal padrão com baixo custo de mana.</li>
-              <li><b>Warp:</b> Teleporte pontual de curto alcance sem colisão física.</li>
-              <li><b>Bullet:</b> Projeta o jogador com dano cinético contundente contra mobs no trajeto.</li>
-              <li><b>Cleave:</b> Aplica corte horizontal ao final do movimento de deslocamento.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Vein Miner -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Vein Miner</span> &bull; Mineração em Massa</div>
-          <div class="system-content">
-            <p>Quebra veios interligados de minérios e blocos em uma única ação contínua.</p>
-            <ul>
-              <li><b>Finesse:</b> Reduz severamente o consumo de durabilidade da ferramenta ao quebrar blocos.</li>
-              <li><b>Fortune:</b> Concede multiplicador bônus de fortuna na quebra de minérios da Vault.</li>
-              <li><b>Void:</b> Desintegra automaticamente resíduos como pedras comuns, liberando inventário.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Heal -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Heal</span> &bull; Restauração Vital</div>
-          <div class="system-content">
-            <p>Recuperação emergencial instantânea de pontos de vida utilizando sua reserva de Mana.</p>
-            <ul>
-              <li><b>Cleanse:</b> Além de curar, remove veneno, lentidão, murchidão e fadiga de mineração.</li>
-              <li><b>Burst:</b> Restauração concentrada instantânea com tempo de recarga prolongado.</li>
-              <li><b>Effect:</b> Concede regeneração contínua de curto prazo em vez de cura imediata.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Rampage / Nova -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Rampage</span> &bull; Dano Explosivo</div>
-          <div class="system-content">
-            <p>Buff temporário de poder ofensivo para derrotar guardiões de obeliscos e chefões.</p>
-            <ul>
-              <li><b>Leech:</b> Uma porcentagem do dano causado é convertida em pontos de vida durante o efeito.</li>
-              <li><b>Chaining:</b> Cada golpe corpo a corpo propaga arcos de energia para alvos secundários.</li>
-              <li><b>Damage:</b> Aumento linear puro no multiplicador de dano de ataque corpo a corpo.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Hunter -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Hunter</span> &bull; Detecção de Objetivos</div>
-          <div class="system-content">
-            <p>Destaque visual temporário através das paredes para localizar itens de interesse nas salas.</p>
-            <ul>
-              <li><b>Gilded:</b> Destaca baús dourados (ouro, fragmentos e modificadores).</li>
-              <li><b>Living:</b> Destaca baús biológicos (conhecimento, ervas e sementes).</li>
-              <li><b>Ornate:</b> Destaca baús ornamentados (equipamentos de combate e joias).</li>
-              <li><b>Blocks / Ores:</b> Localiza pilares ocultos de minérios nobres da Vault.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Passives / Talents -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Talentos Passivos</span> &bull; Escala Contínua</div>
-          <div class="system-content">
-            <ul>
-              <li><b>Speed:</b> Aumento permanente na velocidade de movimento do jogador.</li>
-              <li><b>Haste:</b> Velocidade de ataque corpo a corpo e velocidade de quebra de blocos.</li>
-              <li><b>Strength:</b> Aumento de porcentagem de dano base aplicado a qualquer arma.</li>
-              <li><b>Mana Pool:</b> Expansão permanente do limite total da reserva de mana do jogador.</li>
-              <li><b>Looting:</b> Aumento na probabilidade de itens adicionais ao derrotar mobs na Vault.</li>
-            </ul>
-          </div>
-        </div>
+      <div class="system-grid" id="skillsGridContainer">
+        <!-- Rendered dynamically by current language -->
       </div>
     </div>
   </section>
@@ -1114,62 +1019,14 @@
   <section id="view-vaults" class="view-section">
     <div class="container">
       <div class="compendium-head">
-        <h2 class="compendium-title">Sistemas e Estrutura das Vaults</h2>
-        <p class="compendium-desc">
+        <h2 class="compendium-title" data-i18n="vaults_head_title">Sistemas e Estrutura das Vaults</h2>
+        <p class="compendium-desc" data-i18n="vaults_head_desc">
           Entenda as regras de geração procedural das masmorras, a criação de cristais, modificadores de catalisadores e tipos de baús.
         </p>
       </div>
 
-      <div class="system-grid">
-        <div class="system-card">
-          <div class="system-card-title"><span>Altar & Cristais</span></div>
-          <div class="system-content">
-            <p>Para abrir uma Vault, você precisa confeccionar um <b>Vault Crystal</b>:</p>
-            <ul>
-              <li>Crie um <b>Vault Altar</b> e coloque uma <i>Vault Rock</i> (minerada no subsolo).</li>
-              <li>O altar exibirá 4 requisições de itens comuns do mundo Vanilla.</li>
-              <li>Entregue os itens até atingir 100% de infusão.</li>
-              <li>Construa uma moldura de portal com <i>Vault Stone</i> e clique com o cristal para abrir o portal de 25 minutos.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="system-card">
-          <div class="system-card-title"><span>Catalisadores & Modificadores</span></div>
-          <div class="system-content">
-            <p>Você pode infundir cristais na <i>Vault Catalyst Infusion Table</i> antes de abri-los:</p>
-            <ul>
-              <li><b>Plentiful:</b> Multiplica veios de minérios na Vault (+100% por stack).</li>
-              <li><b>Rich:</b> Multiplica baús de madeira (Wooden Chests).</li>
-              <li><b>Gilded / Ornate / Living:</b> Aumenta a concentração dos respectivos baús nobres.</li>
-              <li><b>Extender:</b> Adiciona minutos ao cronômetro da Vault.</li>
-              <li><b>Cuidado com Instabilidade:</b> Cada catalisador aplicado adiciona instabilidade ao cristal. Se ultrapassar o limite, o cristal pode adquirir maldições como <i>Frenzy</i> (mobs acelerados) ou <i>Clumsy</i>.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="system-card">
-          <div class="system-card-title"><span>Classificação de Baús</span></div>
-          <div class="system-content">
-            <ul>
-              <li><b>Wooden Chests:</b> Materiais de construção, Vault Cobblestone e recursos básicos.</li>
-              <li><b>Gilded Chests:</b> Barras de carbono, moedas de ouro, bronze e caixas de mods.</li>
-              <li><b>Living Chests:</b> Fragmentos de Knowledge Star, sementes e essências.</li>
-              <li><b>Ornate Chests:</b> Equipamentos não identificados (Vault Gear), joias e relíquias.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="system-card">
-          <div class="system-card-title"><span>Salas de Alto Valor</span></div>
-          <div class="system-content">
-            <ul>
-              <li><b>Mine Room:</b> Pilares verticais maciços compostos por minérios raros da Vault.</li>
-              <li><b>Treasure Room:</b> Portas fechadas com fechaduras de deuses. Requerem chaves artesanais e guardam baús supremos.</li>
-              <li><b>Omega Room:</b> Salas raras com temáticas especiais (fábricas, bibliotecas, criptas de cristal).</li>
-            </ul>
-          </div>
-        </div>
+      <div class="system-grid" id="vaultsGridContainer">
+        <!-- Rendered dynamically by current language -->
       </div>
     </div>
   </section>
@@ -1180,146 +1037,33 @@
   <section id="view-server" class="view-section">
     <div class="container">
       <div class="compendium-head">
-        <h2 class="compendium-title">Servidor VH - Manzi: Mecânicas & Especificações</h2>
-        <p class="compendium-desc">
+        <h2 class="compendium-title" data-i18n="server_head_title">Servidor VH - Manzi: Mecânicas & Especificações</h2>
+        <p class="compendium-desc" data-i18n="server_head_desc">
           Documentação das regras do servidor, sistema de autenticação, proteção de terreno FLAN, escalonamento de ranks e protocolo de reinício.
         </p>
       </div>
 
-      <div class="system-grid">
-        <!-- Auth & Auto-Login -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Autenticação & IP Auto-Login</span></div>
-          <div class="system-content">
-            <p>Nosso servidor utiliza um sistema de proteção para garantir a segurança de contas originais e piratas:</p>
-            <ul>
-              <li><b>Primeiro Acesso:</b> <span class="code-chip">/register &lt;senha&gt; &lt;confirmarSenha&gt;</span></li>
-              <li><b>Login Subsequente:</b> <span class="code-chip">/login &lt;senha&gt;</span></li>
-              <li><b>Auto-Login Inteligente por IP:</b> O servidor valida o hash de segurança do último IP conectado. Ao reconectar da mesma máquina, sua sessão é restaurada automaticamente no chat sem necessidade de redigitar a senha a cada entrada.</li>
-              <li><b>Proteção Pré-Login:</b> Jogadores não autenticados permanecem congelados, imunes a qualquer dano e protegidos contra alterações de inventário.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Vault Isolation Mechanics -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Isolamento Crítico nas Vaults</span></div>
-          <div class="system-content">
-            <p>Mecânicas server-side exclusivas para preservar o balanceamento e o foco nas masmorras:</p>
-            <ul>
-              <li><b>Silenciador de Chat na Vault:</b> Dentro da dimensão <span class="code-chip">the_vault</span>, o chat geral global é silenciado para o jogador, mantendo foco absoluto nos 25 minutos. Mensagens privadas (<span class="code-chip">/msg</span>) e anúncios urgentes do servidor continuam visíveis.</li>
-              <li><b>Bloqueio Estrito de Teleportes:</b> Todos os comandos de teleporte (<span class="code-chip">/home</span>, <span class="code-chip">/tpa</span>, <span class="code-chip">/rtp</span>, <span class="code-chip">/spawn</span>) são estritamente proibidos de serem executados dentro de qualquer Vault ou tendo a Vault como destino.</li>
-              <li><b>Trava Preventiva de Reinício (-30m):</b> Faltando 30 minutos para o reinício agendado do servidor, a abertura de novos portais é automaticamente bloqueada para evitar mortes e perda de itens por queda de conexão.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- FLAN Claims & Territory Economy -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Proteção de Terreno (FLAN) & Economia</span></div>
-          <div class="system-content">
-            <p>Sistema de proteção de construções e baús contra invasões e griefing no mundo Vanilla:</p>
-            <ul>
-              <li><b>Ferramenta de Claim:</b> Utilize a ferramenta oficial do FLAN para marcar as extremidades do seu território.</li>
-              <li><b>Compra de Blocos Adicionais:</b> Execute <span class="code-chip">/comprarclaim &lt;quantidade&gt;</span> ou <span class="code-chip">/buyclaim &lt;quantidade&gt;</span>.</li>
-              <li><b>Custo Fixo:</b> <b>$1</b> por bloco de claim adquirido. O valor investido é direcionado automaticamente para o <b>Tesouro do Servidor</b>, alimentando os fundos públicos da comunidade.</li>
-              <li><b>Gerenciamento:</b> Compartilhe permissões de abertura de baús e quebra com amigos de confiança através do menu do FLAN.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Teleports, Warmups & Ranks -->
-        <div class="system-card">
-          <div class="system-card-title"><span>Teleportes Dinâmicos por Rank</span></div>
-          <div class="system-content">
-            <p>O tempo de espera imóvel (warmup) e o tempo de recarga (cooldown) de teleportes reduzem conforme sua progressão no servidor:</p>
-            <ul>
-              <li><b>Unranked (Iniciantes):</b> 5 segundos parado para teleporte &bull; Cooldown de 5 minutos.</li>
-              <li><b>Ranks F a D:</b> 4 a 3 segundos parado &bull; Cooldown progressivamente menor.</li>
-              <li><b>Ranks C a A:</b> 2 a 1 segundo parado &bull; Cooldown de 2 a 1 minuto.</li>
-              <li><b>Ranks S & Superiores:</b> <b>0 segundos (Teleporte Instantâneo)</b> &bull; Cooldown de 30 segundos.</li>
-              <li><b>Interrupção:</b> Se você se mover ou receber dano durante o warmup, o teleporte é cancelado imediatamente.</li>
-            </ul>
-          </div>
-        </div>
+      <div class="system-grid" id="serverSystemsContainer">
+        <!-- Rendered dynamically by current language -->
       </div>
 
       <!-- Schedule & Anti-Dupe Routine -->
-      <div class="system-card" style="margin-bottom: 24px;">
-        <div class="system-card-title"><span>Rotina Diária de Reinício do Servidor (Horário de Brasília)</span></div>
-        <div class="system-content">
-          <p>Para garantir taxa de quadros (TPS) perfeita e limpeza de memória do servidor, ocorrem reinícios agendados diariamente às <b>03:00</b> e <b>15:00 (UTC-3)</b>:</p>
-          <ul>
-            <li><b>-30 Minutos:</b> Alerta sonoro no servidor e travamento de entrada em novas Vaults.</li>
-            <li><b>-10 Minutos e -5 Minutos:</b> Mensagens de contagem regressiva e aviso de retorno para as bases.</li>
-            <li><b>-1 Minuto:</b> Alerta sonoro de sino final.</li>
-            <li><b>-10 Segundos:</b> Contagem regressiva visual na tela.</li>
-            <li><b>Protocolo Anti-Dupe:</b> Execução forçada de salvamento de inventários em massa (<span class="code-chip">save-all</span>), desconexão graciosa de jogadores e reinicialização segura dos processos.</li>
-          </ul>
-        </div>
+      <div class="system-card" style="margin-bottom: 24px;" id="serverScheduleCard">
+        <!-- Rendered dynamically by current language -->
       </div>
 
-      <!-- Comprehensive Command Reference Table -->
+      <!-- Comprehensive Command Reference Table (Bilingual Adapted Commands) -->
       <div class="data-table-container">
         <table class="compendium-table">
           <thead>
             <tr>
-              <th style="width: 25%;">Comando</th>
-              <th style="width: 45%;">Função / Descrição</th>
-              <th style="width: 30%;">Restrições / Observações</th>
+              <th style="width: 28%;" data-i18n="th_cmd">Comando</th>
+              <th style="width: 44%;" data-i18n="th_cmd_desc">Função / Descrição</th>
+              <th style="width: 28%;" data-i18n="th_cmd_rest">Restrições / Observações</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><span class="code-chip">/register &lt;senha&gt; &lt;senha&gt;</span></td>
-              <td>Registra sua senha no servidor no primeiro acesso.</td>
-              <td>Requer no mínimo 4 caracteres.</td>
-            </tr>
-            <tr>
-              <td><span class="code-chip">/login &lt;senha&gt;</span></td>
-              <td>Autentica sua conta em caso de alteração de IP.</td>
-              <td>Sessão é mantida via IP inteligente.</td>
-            </tr>
-            <tr>
-              <td><span class="code-chip">/sethome [nome]</span></td>
-              <td>Salva a localização atual como ponto de retorno.</td>
-              <td>Proibido dentro de dimensões de Vault.</td>
-            </tr>
-            <tr>
-              <td><span class="code-chip">/home [nome]</span></td>
-              <td>Teleporta o jogador para sua base salva.</td>
-              <td>Sujeito ao warmup e cooldown do seu rank.</td>
-            </tr>
-            <tr>
-              <td><span class="code-chip">/tpa &lt;jogador&gt;</span></td>
-              <td>Envia solicitação amigável de teleporte para outro player.</td>
-              <td>Alvo precisa aceitar com /tpaccept.</td>
-            </tr>
-            <tr>
-              <td><span class="code-chip">/tpaccept</span></td>
-              <td>Aceita a última solicitação de teleporte recebida.</td>
-              <td>Inicia o contador de warmup do emissor.</td>
-            </tr>
-            <tr>
-              <td><span class="code-chip">/tpdeny</span></td>
-              <td>Recusa a solicitação de teleporte pendente.</td>
-              <td>Cancela a fila de teleporte.</td>
-            </tr>
-            <tr>
-              <td><span class="code-chip">/spawn</span></td>
-              <td>Retorna ao centro do mundo e ponto comunitário.</td>
-              <td>Sujeito a cooldown de teleporte.</td>
-            </tr>
-            <tr>
-              <td><span class="code-chip">/comprarclaim &lt;qtd&gt;</span></td>
-              <td>Adquire blocos adicionais de proteção de terreno FLAN.</td>
-              <td>Custo de $1 por bloco via carteira.</td>
-            </tr>
-            <tr>
-              <td><span class="code-chip">/msg &lt;jogador&gt; &lt;texto&gt;</span></td>
-              <td>Envia mensagem privada direta para outro jogador online.</td>
-              <td>Funciona mesmo para jogadores dentro da Vault.</td>
-            </tr>
+          <tbody id="commandTableBody">
+            <!-- Dynamically populated with adapted PT or EN command syntax -->
           </tbody>
         </table>
       </div>
@@ -1332,46 +1076,23 @@
   <section id="view-download" class="view-section">
     <div class="container">
       <div class="compendium-head">
-        <h2 class="compendium-title">Download & Configuração Técnica do Launcher</h2>
-        <p class="compendium-desc">
+        <h2 class="compendium-title" data-i18n="dl_head_title">Download & Configuração Técnica do Launcher</h2>
+        <p class="compendium-desc" data-i18n="dl_head_desc">
           Instruções de instalação simplificada, alocação de memória RAM e uso do modo FPS Boost.
         </p>
       </div>
 
-      <div class="system-grid">
-        <div class="system-card">
-          <div class="system-card-title"><span>Arquitetura Portátil & Independente</span></div>
-          <div class="system-content">
-            <p>O launcher <b>VH - Manzi</b> foi desenvolvido em arquitetura 100% independente do inicializador padrão do Minecraft:</p>
-            <ul>
-              <li><b>Java 17 Embutido:</b> Não é necessário instalar ou atualizar Java no Windows. O launcher traz o Adoptium OpenJDK 17 Temurin configurado e isolado na pasta de instalação.</li>
-              <li><b>Sem Conflitos com %AppData%:</b> Os arquivos do modpack residem em pasta dedicada, impedindo que modificações ou mundos de outras versões sejam sobrescritos.</li>
-              <li><b>Auto-Updater Silencioso:</b> O executável compara sua versão interna diretamente com as releases do GitHub. Havendo novidades, o launcher substitui a si mesmo sem exigir novos downloads manuais.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="system-card">
-          <div class="system-card-title"><span>Alocação de Memória RAM & FPS Boost</span></div>
-          <div class="system-content">
-            <p>O Vault Hunters 3rd Edition carrega mais de 100 mods complexos de RPG e renderização:</p>
-            <ul>
-              <li><b>RAM Recomendada:</b> <b>8 GB</b> de RAM alocados no controle deslizante do launcher.</li>
-              <li><b>Computadores com 8 GB Totais:</b> Aloque <b>6 GB</b> de RAM e ative a chave <b>FPS Boost</b>.</li>
-              <li><b>Otimizações do FPS Boost:</b> Desativa modificadores estritamente cosméticos (shaders pesados do Oculus, tooltips tridimensionais) e reconfigura o motor gráfico Embeddium para processamento de chunks assíncrono e culling agressivo de entidades.</li>
-              <li><b>Compatibilidade Garantida:</b> Blocos funcionais (como telas do WaterFrames e canais de áudio) permanecem ativos, permitindo conexão normal ao servidor.</li>
-            </ul>
-          </div>
-        </div>
+      <div class="system-grid" id="dlSpecsContainer">
+        <!-- Rendered dynamically by current language -->
       </div>
 
       <div class="panel-dock" style="margin-top: 30px;">
         <div class="dock-actions">
-          <a href="https://github.com/knatoa-hub/vh-manzi-modpack/releases/latest/download/VHManziLauncher.exe" class="btn-main-download">
+          <a href="https://github.com/knatoa-hub/vh-manzi-modpack/releases/latest/download/VHManziLauncher.exe" class="btn-main-download" data-i18n="btn_dl_version">
             BAIXAR VHMANZILAUNCHER.EXE (v1.0.1)
           </a>
         </div>
-        <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">
+        <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center;" data-i18n="dl_compat_note">
           Compatível com Windows 10 e Windows 11 (64-bit). Tamanho: ~40.5 MB.
         </p>
       </div>
@@ -1382,124 +1103,341 @@
   <footer>
     <div class="container">
       <ul class="footer-nav">
-        <li><a href="#" onclick="navigateTab('home')">Início</a></li>
-        <li><a href="#" onclick="navigateTab('gear')">Equipamentos</a></li>
-        <li><a href="#" onclick="navigateTab('skills')">Habilidades</a></li>
-        <li><a href="#" onclick="navigateTab('vaults')">Mecânicas</a></li>
-        <li><a href="#" onclick="navigateTab('server')">Servidor</a></li>
+        <li><a href="#" onclick="navigateTab('home')" data-i18n="nav_home">Início</a></li>
+        <li><a href="#" onclick="navigateTab('gear')" data-i18n="nav_gear">Equipamentos</a></li>
+        <li><a href="#" onclick="navigateTab('skills')" data-i18n="nav_skills">Habilidades</a></li>
+        <li><a href="#" onclick="navigateTab('vaults')" data-i18n="nav_vaults">Mecânicas</a></li>
+        <li><a href="#" onclick="navigateTab('server')" data-i18n="nav_server">Servidor</a></li>
         <li><a href="https://github.com/knatoa-hub/vh-manzi-modpack" target="_blank">GitHub</a></li>
         <li><a href="https://vaulthunters.gg" target="_blank">VaultHunters Oficial</a></li>
       </ul>
-      <p>VH - Manzi &bull; Servidor & Compêndio Técnico da Comunidade &bull; 2026</p>
-      <p style="font-size: 0.78rem; margin-top: 6px; color: #4b5563;">Vault Hunters é um projeto criado por Iskall85 e equipe Vault Hunters. Não afiliado à Mojang ou Microsoft.</p>
+      <p data-i18n="footer_rights">VH - Manzi &bull; Servidor & Compêndio Técnico da Comunidade &bull; 2026</p>
+      <p style="font-size: 0.78rem; margin-top: 6px; color: #4b5563;" data-i18n="footer_disclaimer">Vault Hunters é um projeto criado por Iskall85 e equipe Vault Hunters. Não afiliado à Mojang ou Microsoft.</p>
     </div>
   </footer>
 
-  <!-- Compendium Engine & Live Status Script -->
+  <!-- Bilingual Engine & Data Script -->
   <script>
     // ========================================================
-    // 1. GEAR DATABASE (ACCURATE VAULTHUNTERS 3RD EDITION DATA)
+    // BILINGUAL DICTIONARY (PT-BR / EN-US)
+    // ========================================================
+    const I18N = {
+      pt: {
+        nav_home: "Início",
+        nav_gear: "Equipamentos & Modificadores",
+        nav_skills: "Habilidades & Talentos",
+        nav_vaults: "Mecânicas da Vault",
+        nav_server: "Servidor & Regras",
+        nav_download: "Instalação & Launcher",
+        btn_nav_download: "Baixar Launcher",
+        hero_tag: "Servidor Oficial • Vault Hunters 3rd Edition",
+        hero_title: "Compêndio Técnico<br>& Servidor Oficial",
+        hero_lead: "Plataforma de consulta oficial do servidor VH - Manzi. Acesse tabelas completas de atributos de equipamentos, calculadora de modificadores, árvores de habilidades e especificações de comandos e regras ativas no servidor.",
+        btn_hero_download: "BAIXAR LAUNCHER OFICIAL (WINDOWS)",
+        lbl_server_addr: "Endereço de Conexão",
+        copied_toast: "Copiado!",
+        status_checking: "Verificando status do servidor...",
+        pill_portable_java: "Java: OpenJDK 17 Portátil",
+        mod_tag_db: "Database",
+        mod_gear_title: "Equipamentos & Modificadores",
+        mod_gear_desc: "Tabelas detalhadas de valores Implícitos, Prefixos e Sufixos de cada peça de arma, armadura e utilitário do modpack.",
+        mod_tag_rpg: "RPG System",
+        mod_skills_title: "Habilidades & Talentos",
+        mod_skills_desc: "Especializações de Dash, Vein Miner, Heal, Rampage e talentos passivos de velocidade, força e mana.",
+        mod_tag_dung: "Dungeons",
+        mod_vaults_title: "Mecânicas da Vault",
+        mod_vaults_desc: "Infusão de Cristais, aplicação de Catalisadores, salas raras (Mine, Treasure, Omega) e tabelas de baús.",
+        mod_tag_core: "Server Core",
+        mod_server_title: "Mecânicas do Servidor",
+        mod_server_desc: "Autenticação por IP, proteção de terreno FLAN ($1/bloco), ranks com warmup zero de teleporte e reinícios agendados.",
+        gear_head_title: "Base de Dados de Equipamentos (Gear)",
+        gear_head_desc: "Consulte todos os atributos e limites de rolagem possíveis para cada peça de Vault Gear. Use os filtros para inspecionar valores Implícitos (fixos), Prefixos (atributos primários) e Sufixos (atributos secundários).",
+        gear_search_placeholder: "Filtrar por nome do modificador (ex: Cooldown, Armor, Copiously, Mana)...",
+        filter_all: "Todos",
+        filter_implicit: "Implícitos",
+        filter_prefix: "Prefixos",
+        filter_suffix: "Sufixos",
+        th_modifier: "Modificador",
+        th_type: "Tipo",
+        th_scales: "Valores & Escalas (Tier 1 • Tier 2 • Tier 3)",
+        th_effect: "Descrição do Efeito",
+        rarity_legend_title: "Raridades de Identificação:",
+        skills_head_title: "Árvore de Habilidades & Talentos",
+        skills_head_desc: "Dentro do jogo, pressione a tecla 'H' para acessar a interface de habilidades ativas (Abilities) e passivas (Talents). Cada nível de Vault conquistado concede pontos de habilidade para montar sua build.",
+        vaults_head_title: "Sistemas e Estrutura das Vaults",
+        vaults_head_desc: "Entenda as regras de geração procedural das masmorras, a criação de cristais, modificadores de catalisadores e tipos de baús.",
+        server_head_title: "Servidor VH - Manzi: Mecânicas & Especificações",
+        server_head_desc: "Documentação das regras do servidor, sistema de autenticação, proteção de terreno FLAN, escalonamento de ranks e protocolo de reinício.",
+        th_cmd: "Comando",
+        th_cmd_desc: "Função / Descrição",
+        th_cmd_rest: "Restrições / Observações",
+        dl_head_title: "Download & Configuração Técnica do Launcher",
+        dl_head_desc: "Instruções de instalação simplificada, alocação de memória RAM e uso do modo FPS Boost.",
+        btn_dl_version: "BAIXAR VHMANZILAUNCHER.EXE (v1.0.1)",
+        dl_compat_note: "Compatível com Windows 10 e Windows 11 (64-bit). Tamanho: ~40.5 MB.",
+        footer_rights: "VH - Manzi • Servidor & Compêndio Técnico da Comunidade • 2026",
+        footer_disclaimer: "Vault Hunters é um projeto criado por Iskall85 e equipe Vault Hunters. Não afiliado à Mojang ou Microsoft.",
+        status_online: "ONLINE - Servidor em Operação",
+        status_players: "Jogadores"
+      },
+      en: {
+        nav_home: "Home",
+        nav_gear: "Gear & Modifiers",
+        nav_skills: "Abilities & Talents",
+        nav_vaults: "Vault Mechanics",
+        nav_server: "Server & Rules",
+        nav_download: "Install & Launcher",
+        btn_nav_download: "Download Launcher",
+        hero_tag: "Official Server • Vault Hunters 3rd Edition",
+        hero_title: "Technical Compendium<br>& Official Server",
+        hero_lead: "Official reference compendium for the VH - Manzi server. Browse full equipment roll tables, modifier calculators, skill progression trees, and active server rules and commands.",
+        btn_hero_download: "DOWNLOAD OFFICIAL LAUNCHER (WINDOWS)",
+        lbl_server_addr: "Server Connection Address",
+        copied_toast: "Copied!",
+        status_checking: "Checking server status...",
+        pill_portable_java: "Java: Portable OpenJDK 17",
+        mod_tag_db: "Database",
+        mod_gear_title: "Gear & Modifiers",
+        mod_gear_desc: "Detailed roll brackets for Implicits, Prefixes, and Suffixes across every weapon, armor piece, and utility gear.",
+        mod_tag_rpg: "RPG System",
+        mod_skills_title: "Abilities & Talents",
+        mod_skills_desc: "Specializations for Dash, Vein Miner, Heal, Rampage, and passive talents for speed, attack power, and mana.",
+        mod_tag_dung: "Dungeons",
+        mod_vaults_title: "Vault Mechanics",
+        mod_vaults_desc: "Crystal Infusion, Catalyst applications, high-value rooms (Mine, Treasure, Omega), and chest loot tables.",
+        mod_tag_core: "Server Core",
+        mod_server_title: "Server Mechanics",
+        mod_server_desc: "IP-based session restore, FLAN territory claims ($1/block), rank-scaled instant teleports, and scheduled restarts.",
+        gear_head_title: "Gear Database & Roll Ranges",
+        gear_head_desc: "Inspect every possible attribute and roll milestone for each piece of Vault Gear. Use filters to review Implicits (locked), Prefixes (primary stats), and Suffixes (utility stats).",
+        gear_search_placeholder: "Filter by modifier name (e.g. Cooldown, Armor, Copiously, Mana)...",
+        filter_all: "All",
+        filter_implicit: "Implicits",
+        filter_prefix: "Prefixes",
+        filter_suffix: "Suffixes",
+        th_modifier: "Modifier",
+        th_type: "Type",
+        th_scales: "Values & Brackets (Tier 1 • Tier 2 • Tier 3)",
+        th_effect: "Combat Effect Description",
+        rarity_legend_title: "Identification Rarities:",
+        skills_head_title: "Abilities & Talents Tree",
+        skills_head_desc: "Press 'H' in-game to open the active abilities and passive talent tree. Each Vault Level earned grants skill points to tailor your custom build.",
+        vaults_head_title: "Vault Dungeon Systems",
+        vaults_head_desc: "Learn procedural dungeon generation mechanics, crystal crafting, catalyst modifications, and chest categories.",
+        server_head_title: "VH - Manzi Server: Specifications & Mechanics",
+        server_head_desc: "Official server documentation covering authentication, FLAN claim protections, rank perks, and automated safety routines.",
+        th_cmd: "Command",
+        th_cmd_desc: "Function / Description",
+        th_cmd_rest: "Restrictions / Notes",
+        dl_head_title: "Launcher Download & Technical Setup",
+        dl_head_desc: "Zero-friction installation guide, allocated RAM configuration, and FPS Boost tuning.",
+        btn_dl_version: "DOWNLOAD VHMANZILAUNCHER.EXE (v1.0.1)",
+        dl_compat_note: "Compatible with Windows 10 & 11 (64-bit). Size: ~40.5 MB.",
+        footer_rights: "VH - Manzi • Community Server & Technical Compendium • 2026",
+        footer_disclaimer: "Vault Hunters is created by Iskall85 and the Vault Hunters team. Not affiliated with Mojang or Microsoft.",
+        status_online: "ONLINE - Server Running",
+        status_players: "Players"
+      }
+    };
+
+    let currentLang = "pt";
+
+    function getInitialLang() {
+      const saved = localStorage.getItem("vh_site_lang");
+      if (saved && (saved === "pt" || saved === "en")) return saved;
+      const navLang = (navigator.language || navigator.userLanguage || "pt-BR").toLowerCase();
+      return navLang.startsWith("pt") ? "pt" : "en";
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === "pt" ? "en" : "pt";
+      localStorage.setItem("vh_site_lang", currentLang);
+      applyLanguage(currentLang);
+    }
+
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+      const dict = I18N[lang] || I18N.pt;
+
+      // Update text in all [data-i18n] nodes
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Update toggle indicator
+      const langIndicator = document.getElementById("langTextIndicator");
+      if (langIndicator) {
+        if (lang === "pt") {
+          langIndicator.innerHTML = `<b class="lang-active-text">PT</b> | EN`;
+        } else {
+          langIndicator.innerHTML = `PT | <b class="lang-active-text">EN</b>`;
+        }
+      }
+
+      // Update search placeholder
+      const searchInput = document.getElementById("gearSearchInput");
+      if (searchInput) {
+        searchInput.placeholder = dict.gear_search_placeholder;
+      }
+
+      // Render Dynamic Sections in chosen language
+      renderGearSlotTabs();
+      renderGearTable();
+      renderSkillsGrid();
+      renderVaultsGrid();
+      renderServerSections();
+      renderCommandTable();
+      renderDownloadSpecs();
+      queryLiveServerStatus();
+    }
+
+    // ========================================================
+    // BILINGUAL GEAR DATABASE (ACCURATE VAULTHUNTERS 3RD ED.)
     // ========================================================
     const GEAR_DATABASE = {
-      helmet: [
-        { name: "Armadura Base (Armor)", type: "implicit", values: "+4 &bull; +6 &bull; +8", desc: "Redução de dano físico recebido." },
-        { name: "Tenacidade de Armadura (Toughness)", type: "implicit", values: "+2 &bull; +3 &bull; +4", desc: "Atenuação de ataques com alto dano de impacto." },
-        { name: "Durabilidade (Durability)", type: "implicit", values: "850 &bull; 1400 &bull; 2200", desc: "Integridade estrutural da peça de armadura." },
-        { name: "Vida Máxima (Health)", type: "prefix", values: "+1.0 &bull; +2.0 &bull; +3.5 Corações", desc: "Aumento nos pontos de vida máxima do jogador." },
-        { name: "Armadura Bônus (Armor)", type: "prefix", values: "+1 &bull; +3 &bull; +5", desc: "Pontos adicionais somados à armadura total." },
-        { name: "Resistência a Dano (Resistance)", type: "prefix", values: "+2% &bull; +4% &bull; +7%", desc: "Mitigação percentual contra todas as fontes de dano." },
-        { name: "Mana Máxima (Mana Pool)", type: "prefix", values: "+15 &bull; +30 &bull; +50", desc: "Aumento no limite total da reserva de Mana." },
-        { name: "Redução de Tempo de Recarga (CDR)", type: "suffix", values: "+3% &bull; +5% &bull; +8%", desc: "Acelera a recarga de todas as habilidades ativas." },
-        { name: "Raridade de Itens (Item Rarity)", type: "suffix", values: "+5% &bull; +12% &bull; +20%", desc: "Aumenta a probabilidade de baús gerarem itens raros e ômegas." },
-        { name: "Quantidade de Itens (Item Quantity)", type: "suffix", values: "+4% &bull; +8% &bull; +15%", desc: "Multiplica o total de itens gerados por baú aberto." },
-        { name: "Regeneração de Mana (Mana Regen)", type: "suffix", values: "+10% &bull; +20% &bull; +35%", desc: "Acelera a taxa passiva de recuperação de Mana." },
-        { name: "Desarmar Armadilhas (Trap Disarm)", type: "suffix", values: "+6% &bull; +12% &bull; +22%", desc: "Chance percentual de desativar armadilhas em baús." }
-      ],
-      chestplate: [
-        { name: "Armadura Base (Armor)", type: "implicit", values: "+7 &bull; +10 &bull; +14", desc: "A peça com maior índice defensivo do conjunto." },
-        { name: "Tenacidade de Armadura (Toughness)", type: "implicit", values: "+3 &bull; +4 &bull; +6", desc: "Defesa avançada contra chefões e guardiões." },
-        { name: "Durabilidade (Durability)", type: "implicit", values: "1100 &bull; 1800 &bull; 2800", desc: "Vida útil prolongada para suportar combate intenso." },
-        { name: "Vida Máxima (Health)", type: "prefix", values: "+1.5 &bull; +3.0 &bull; +5.0 Corações", desc: "O maior bônus de vida entre todas as peças." },
-        { name: "Resistência a Dano (Resistance)", type: "prefix", values: "+3% &bull; +6% &bull; +10%", desc: "Proteção percentual acumulativa contra dano." },
-        { name: "Armadura Bônus (Armor)", type: "prefix", values: "+2 &bull; +4 &bull; +7", desc: "Defesa física reforçada." },
-        { name: "Copiosamente (Copiously)", type: "suffix", values: "+1% &bull; +3% &bull; +6%", desc: "Chance de duplicar o drop ao minerar minérios da Vault." },
-        { name: "Dano de Espinhos (Thorns)", type: "suffix", values: "+10% &bull; +25% &bull; +50%", desc: "Reflete porcentagem do dano recebido de volta ao agressor." },
-        { name: "Resistência a Repulsão (Knockback Res)", type: "suffix", values: "+15% &bull; +30% &bull; +50%", desc: "Impede que ataques inimigos empurrem o jogador." },
-        { name: "Quantidade de Itens (Item Quantity)", type: "suffix", values: "+5% &bull; +10% &bull; +16%", desc: "Multiplica o total de itens gerados por baú aberto." }
-      ],
-      leggings: [
-        { name: "Armadura Base (Armor)", type: "implicit", values: "+5 &bull; +7 &bull; +10", desc: "Proteção intermediária do conjunto." },
-        { name: "Tenacidade de Armadura (Toughness)", type: "implicit", values: "+2 &bull; +3 &bull; +5", desc: "Mitigação de golpes pesados." },
-        { name: "Durabilidade (Durability)", type: "implicit", values: "950 &bull; 1550 &bull; 2400", desc: "Integridade de calças da Vault." },
-        { name: "Vida Máxima (Health)", type: "prefix", values: "+1.0 &bull; +2.0 &bull; +4.0 Corações", desc: "Expansão da barra de corações." },
-        { name: "Velocidade de Movimento (Speed)", type: "suffix", values: "+4% &bull; +8% &bull; +14%", desc: "Aumento passivo na velocidade de corrida e deslocamento." },
-        { name: "Redução de Tempo de Recarga (CDR)", type: "suffix", values: "+2% &bull; +4% &bull; +7%", desc: "Acelera o tempo de recarga de feitiços e habilidades." },
-        { name: "Chance de Almas (Soul Chance)", type: "suffix", values: "+8% &bull; +16% &bull; +28%", desc: "Aumenta a probabilidade de mobs liberarem fragmentos de alma." },
-        { name: "Raridade de Itens (Item Rarity)", type: "suffix", values: "+5% &bull; +10% &bull; +18%", desc: "Eleva o nível de qualidade dos itens nos baús." }
-      ],
-      boots: [
-        { name: "Armadura Base (Armor)", type: "implicit", values: "+3 &bull; +5 &bull; +7", desc: "Proteção física nas extremidades." },
-        { name: "Tenacidade de Armadura (Toughness)", type: "implicit", values: "+2 &bull; +3 &bull; +4", desc: "Defesa contundente." },
-        { name: "Durabilidade (Durability)", type: "implicit", values: "850 &bull; 1400 &bull; 2200", desc: "Resistência estrutural das botas." },
-        { name: "Velocidade de Movimento (Speed)", type: "suffix", values: "+5% &bull; +10% &bull; +16%", desc: "O maior modificador de velocidade entre as armaduras." },
-        { name: "Queda Suave (Feather Falling)", type: "suffix", values: "+20% &bull; +40% &bull; +70%", desc: "Redução no impacto e dano sofrido por quedas de altura." },
-        { name: "Copiosamente (Copiously)", type: "suffix", values: "+1% &bull; +2% &bull; +5%", desc: "Chance de duplicar o drop ao quebrar minérios." },
-        { name: "Desarmar Armadilhas (Trap Disarm)", type: "suffix", values: "+5% &bull; +10% &bull; +20%", desc: "Chance percentual de desativar armadilhas." }
-      ],
-      sword: [
-        { name: "Dano de Ataque (Attack Damage)", type: "implicit", values: "7.0 &bull; 12.0 &bull; 18.0", desc: "Dano físico base por golpe." },
-        { name: "Velocidade de Ataque (Attack Speed)", type: "implicit", values: "1.6", desc: "Cadência estável de golpes por segundo." },
-        { name: "Dano de Ataque Bônus (+Damage)", type: "prefix", values: "+2.0 &bull; +5.0 &bull; +9.0", desc: "Acréscimo fixo ao valor de dano final." },
-        { name: "Poder de Habilidade (Ability Power)", type: "prefix", values: "+10 &bull; +25 &bull; +45", desc: "Aumenta a escala de dano de magias como Nova e Smite." },
-        { name: "Chance de Golpe Crítico (Crit Chance)", type: "prefix", values: "+5% &bull; +12% &bull; +22%", desc: "Probabilidade de desferir acertos críticos devastadores." },
-        { name: "Dano Crítico (+Crit Damage)", type: "prefix", values: "+20% &bull; +45% &bull; +75%", desc: "Multiplicador de dano aplicado aos acertos críticos." },
-        { name: "Encadeamento (Chaining)", type: "suffix", values: "+1 &bull; +2 &bull; +4 Alvos", desc: "Ataques propagam dano encadeado para inimigos próximos." },
-        { name: "Chance de Atordoamento (Stun Chance)", type: "suffix", values: "+3% &bull; +6% &bull; +12%", desc: "Paralisa temporariamente o inimigo ao acertar o golpe." },
-        { name: "Drenagem de Vida (Leech)", type: "suffix", values: "+1% &bull; +3% &bull; +6%", desc: "Converte uma porcentagem do dano infligido em vida própria." }
-      ],
-      axe: [
-        { name: "Dano de Ataque (Attack Damage)", type: "implicit", values: "9.0 &bull; 16.0 &bull; 24.0", desc: "Alto dano bruto concentrado por machadada." },
-        { name: "Velocidade de Ataque (Attack Speed)", type: "implicit", values: "1.0", desc: "Cadência mais lenta em troca de golpes mais letais." },
-        { name: "Dano Crítico Elevado (Crit Damage)", type: "prefix", values: "+30% &bull; +60% &bull; +100%", desc: "Multiplicador massivo para execuções críticas." },
-        { name: "Ataque Cortante (Cleave Damage)", type: "prefix", values: "+15% &bull; +30% &bull; +50%", desc: "Dano em cone frontal atingindo grupos de monstros." },
-        { name: "Golpe Fatal (Fatal Strike Chance)", type: "suffix", values: "+2% &bull; +5% &bull; +10%", desc: "Chance de desferir golpe mortal instantâneo." },
-        { name: "Sangramento (Bleed Chance)", type: "suffix", values: "+5% &bull; +12% &bull; +25%", desc: "Aplica dano contínuo ao longo do tempo no monstro." }
-      ],
-      wand: [
-        { name: "Poder de Habilidade Base (Ability Power)", type: "implicit", values: "+15 &bull; +35 &bull; +65", desc: "Foco exclusivo em potencializar magias ofensivas." },
-        { name: "Mana Adicional (Implicit Mana)", type: "implicit", values: "+20 &bull; +50 &bull; +90", desc: "Reserva de energia mística." },
-        { name: "Poder de Feitiço (+Spell Damage %)", type: "prefix", values: "+5% &bull; +12% &bull; +25%", desc: "Aumento percentual em todas as magias ativas." },
-        { name: "Redução de Tempo de Recarga (CDR)", type: "suffix", values: "+4% &bull; +8% &bull; +14%", desc: "Permite conjuração acelerada de feitiços." },
-        { name: "Velocidade de Conjuração (Cast Speed)", type: "suffix", values: "+6% &bull; +14% &bull; +24%", desc: "Reduz o tempo de canalização das magias." }
-      ],
-      shield: [
-        { name: "Chance de Bloqueio Base (Block Chance)", type: "implicit", values: "15% &bull; 25% &bull; 35%", desc: "Probabilidade passiva de anular 100% do dano frontal." },
-        { name: "Bloqueio Adicional (+Block Chance)", type: "prefix", values: "+3% &bull; +6% &bull; +10%", desc: "Acumula com o valor implícito para defesa total." },
-        { name: "Dano de Espinhos (Thorns Damage)", type: "suffix", values: "+15 &bull; +35 &bull; +70", desc: "Dano fixo refletido contra o atacante ao bloquear." },
-        { name: "Redução de Recarga (CDR)", type: "suffix", values: "+2% &bull; +4% &bull; +7%", desc: "Acelera habilidades enquanto empunha o escudo." }
-      ],
-      idol: [
-        { name: "Graça Divina (God Favor)", type: "implicit", values: "Tenos &bull; Velara &bull; Wendarr &bull; Idona", desc: "Afiliação com um dos deuses da Vault." },
-        { name: "Efeito Divino Passivo", type: "implicit", values: "Sorte &bull; Cura &bull; Tempo &bull; Dano", desc: "Efeito perpétuo derivado da afinidade divina." },
-        { name: "Raridade de Itens (Item Rarity)", type: "suffix", values: "+8% &bull; +16% &bull; +26%", desc: "O maior multiplicador de raridade em itens de mão secundária." },
-        { name: "Quantidade de Itens (Item Quantity)", type: "suffix", values: "+6% &bull; +12% &bull; +20%", desc: "Multiplicador de volume de drops em baús." }
-      ],
-      magnet: [
-        { name: "Raio de Atração (Range)", type: "implicit", values: "4m &bull; 7m &bull; 11m", desc: "Distância radial de coleta automática de itens." },
-        { name: "Velocidade de Atração (Velocity)", type: "implicit", values: "0.2 &bull; 0.4 &bull; 0.7", desc: "Velocidade com que os itens voam até o jogador." },
-        { name: "Copiosamente (Copiously)", type: "suffix", values: "+1% &bull; +2% &bull; +4%", desc: "Chance de duplicação de minérios da Vault." },
-        { name: "Raridade de Itens (Item Rarity)", type: "suffix", values: "+4% &bull; +8% &bull; +15%", desc: "Bônus de qualidade de loot." }
-      ]
+      helmet: {
+        name_pt: "Capacete (Helmet)",
+        name_en: "Helmet",
+        mods: [
+          { name_pt: "Armadura Base (Armor)", name_en: "Base Armor", type: "implicit", values: "+4 • +6 • +8", desc_pt: "Redução de dano físico recebido.", desc_en: "Direct physical damage reduction." },
+          { name_pt: "Tenacidade de Armadura (Toughness)", name_en: "Armor Toughness", type: "implicit", values: "+2 • +3 • +4", desc_pt: "Mitigação contra ataques contundentes de alto impacto.", desc_en: "Reduces damage penetration from high-damage attacks." },
+          { name_pt: "Durabilidade (Durability)", name_en: "Durability", type: "implicit", values: "850 • 1400 • 2200", desc_pt: "Integridade estrutural da peça.", desc_en: "Total structural integrity of the piece." },
+          { name_pt: "Vida Máxima (Health)", name_en: "Maximum Health", type: "prefix", values: "+1.0 • +2.0 • +3.5 Hearts", desc_pt: "Expansão permanente da barra de vida.", desc_en: "Direct increase to the player's maximum health pool." },
+          { name_pt: "Armadura Bônus (Armor)", name_en: "Bonus Armor", type: "prefix", values: "+1 • +3 • +5", desc_pt: "Pontos adicionais somados à armadura total.", desc_en: "Additional points added to overall armor rating." },
+          { name_pt: "Resistência a Dano (Resistance)", name_en: "Damage Resistance", type: "prefix", values: "+2% • +4% • +7%", desc_pt: "Mitigação percentual contra todas as fontes de dano.", desc_en: "Percentage reduction against all incoming damage." },
+          { name_pt: "Mana Máxima (Mana Pool)", name_en: "Maximum Mana", type: "prefix", values: "+15 • +30 • +50", desc_pt: "Aumento na reserva de Mana do jogador.", desc_en: "Increases maximum spellcasting resource capacity." },
+          { name_pt: "Redução de Tempo de Recarga (CDR)", name_en: "Cooldown Reduction (CDR)", type: "suffix", values: "+3% • +5% • +8%", desc_pt: "Acelera a recarga de todas as habilidades ativas.", desc_en: "Shortens cooldown timers on all active abilities." },
+          { name_pt: "Raridade de Itens (Item Rarity)", name_en: "Item Rarity", type: "suffix", values: "+5% • +12% • +20%", desc_pt: "Aumenta a probabilidade de baús gerarem itens ômega e raros.", desc_en: "Improves roll chances for higher-tier loot in chests." },
+          { name_pt: "Quantidade de Itens (Item Quantity)", name_en: "Item Quantity", type: "suffix", values: "+4% • +8% • +15%", desc_pt: "Multiplica o volume de itens gerados por baú.", desc_en: "Increases total loot item count generated in chests." },
+          { name_pt: "Regeneração de Mana (Mana Regen)", name_en: "Mana Regeneration", type: "suffix", values: "+10% • +20% • +35%", desc_pt: "Acelera a taxa passiva de recuperação de Mana.", desc_en: "Accelerates passive replenishment of Mana over time." },
+          { name_pt: "Desarmar Armadilhas (Trap Disarm)", name_en: "Trap Disarm Chance", type: "suffix", values: "+6% • +12% • +22%", desc_pt: "Chance percentual de desativar armadilhas em baús.", desc_en: "Percent chance to safely defuse trapped chests." }
+        ]
+      },
+      chestplate: {
+        name_pt: "Peitoral (Chestplate)",
+        name_en: "Chestplate",
+        mods: [
+          { name_pt: "Armadura Base (Armor)", name_en: "Base Armor", type: "implicit", values: "+7 • +10 • +14", desc_pt: "A peça com maior valor defensivo do conjunto.", desc_en: "Heaviest defensive piece in the armor set." },
+          { name_pt: "Tenacidade de Armadura (Toughness)", name_en: "Armor Toughness", type: "implicit", values: "+3 • +4 • +6", desc_pt: "Defesa avançada contra chefões.", desc_en: "Advanced mitigation against high-tier boss attacks." },
+          { name_pt: "Durabilidade (Durability)", name_en: "Durability", type: "implicit", values: "1100 • 1800 • 2800", desc_pt: "Integridade de combate pesado.", desc_en: "Heavy-duty durability rating." },
+          { name_pt: "Vida Máxima (Health)", name_en: "Maximum Health", type: "prefix", values: "+1.5 • +3.0 • +5.0 Hearts", desc_pt: "O maior bônus de vida de armadura.", desc_en: "Highest possible health roll across all gear pieces." },
+          { name_pt: "Resistência a Dano (Resistance)", name_en: "Damage Resistance", type: "prefix", values: "+3% • +6% • +10%", desc_pt: "Proteção percentual acumulativa.", desc_en: "Stacking percentage mitigation." },
+          { name_pt: "Copiosamente (Copiously)", name_en: "Copiously", type: "suffix", values: "+1% • +3% • +6%", desc_pt: "Chance de duplicar o drop ao minerar minérios da Vault.", desc_en: "Percent chance to duplicate Vault ore drops upon mining." },
+          { name_pt: "Dano de Espinhos (Thorns)", name_en: "Thorns Damage", type: "suffix", values: "+10% • +25% • +50%", desc_pt: "Reflete porcentagem do dano de volta aos monstros.", desc_en: "Reflects incoming melee damage back to attackers." },
+          { name_pt: "Resistência a Repulsão (Knockback Res)", name_en: "Knockback Resistance", type: "suffix", values: "+15% • +30% • +50%", desc_pt: "Impede que ataques empurrem o jogador.", desc_en: "Prevents player displacement from mob hits." }
+        ]
+      },
+      leggings: {
+        name_pt: "Calças (Leggings)",
+        name_en: "Leggings",
+        mods: [
+          { name_pt: "Armadura Base (Armor)", name_en: "Base Armor", type: "implicit", values: "+5 • +7 • +10", desc_pt: "Proteção intermediária do conjunto.", desc_en: "Mid-tier armor protection." },
+          { name_pt: "Tenacidade de Armadura (Toughness)", name_en: "Armor Toughness", type: "implicit", values: "+2 • +3 • +5", desc_pt: "Mitigação contundente.", desc_en: "Heavy hit absorption." },
+          { name_pt: "Vida Máxima (Health)", name_en: "Maximum Health", type: "prefix", values: "+1.0 • +2.0 • +4.0 Hearts", desc_pt: "Expansão da barra de corações.", desc_en: "Additional health heart pools." },
+          { name_pt: "Velocidade de Movimento (Speed)", name_en: "Movement Speed", type: "suffix", values: "+4% • +8% • +14%", desc_pt: "Aceleração passiva de deslocamento.", desc_en: "Passive run and sprint acceleration." },
+          { name_pt: "Redução de Recarga (CDR)", name_en: "Cooldown Reduction", type: "suffix", values: "+2% • +4% • +7%", desc_pt: "Acelera o tempo de recarga de feitiços.", desc_en: "Faster skill cooldown reset cycles." },
+          { name_pt: "Chance de Almas (Soul Chance)", name_en: "Soul Shard Chance", type: "suffix", values: "+8% • +16% • +28%", desc_pt: "Aumenta drops de fragmentos de alma ao matar mobs.", desc_en: "Increases soul shard drop rates on mob kills." }
+        ]
+      },
+      boots: {
+        name_pt: "Botas (Boots)",
+        name_en: "Boots",
+        mods: [
+          { name_pt: "Armadura Base (Armor)", name_en: "Base Armor", type: "implicit", values: "+3 • +5 • +7", desc_pt: "Proteção física nas extremidades.", desc_en: "Lower body protection." },
+          { name_pt: "Velocidade de Movimento (Speed)", name_en: "Movement Speed", type: "suffix", values: "+5% • +10% • +16%", desc_pt: "O maior modificador de velocidade do jogo.", desc_en: "Highest movement speed bonus available." },
+          { name_pt: "Queda Suave (Feather Falling)", name_en: "Feather Falling", type: "suffix", values: "+20% • +40% • +70%", desc_pt: "Redução no dano sofrido por quedas.", desc_en: "Significantly reduces environmental fall damage." },
+          { name_pt: "Copiosamente (Copiously)", name_en: "Copiously", type: "suffix", values: "+1% • +2% • +5%", desc_pt: "Chance de duplicação de minérios.", desc_en: "Duplication chance on Vault ore mining." }
+        ]
+      },
+      sword: {
+        name_pt: "Espada (Sword)",
+        name_en: "Sword",
+        mods: [
+          { name_pt: "Dano de Ataque (Attack Damage)", name_en: "Base Attack Damage", type: "implicit", values: "7.0 • 12.0 • 18.0", desc_pt: "Dano físico direto por golpe.", desc_en: "Direct physical damage per strike." },
+          { name_pt: "Velocidade de Ataque (Attack Speed)", name_en: "Attack Speed", type: "implicit", values: "1.6", desc_pt: "Cadência ágil de golpes por segundo.", desc_en: "Fast, agile strike rate per second." },
+          { name_pt: "Dano Bônus (+Damage)", name_en: "Bonus Attack Damage", type: "prefix", values: "+2.0 • +5.0 • +9.0", desc_pt: "Acréscimo fixo ao valor final de ataque.", desc_en: "Flat increase added to overall weapon damage." },
+          { name_pt: "Poder de Habilidade (Ability Power)", name_en: "Ability Power", type: "prefix", values: "+10 • +25 • +45", desc_pt: "Escala o dano de magias como Nova e Smite.", desc_en: "Directly scales active spell damage." },
+          { name_pt: "Chance de Crítico (Crit Chance)", name_en: "Critical Hit Chance", type: "prefix", values: "+5% • +12% • +22%", desc_pt: "Probabilidade de desferir acertos críticos.", desc_en: "Chance to trigger a high-damage critical blow." },
+          { name_pt: "Encadeamento (Chaining)", name_en: "Chaining", type: "suffix", values: "+1 • +2 • +4 Targets", desc_pt: "Propaga arcos de dano para inimigos adjacentes.", desc_en: "Attacks chain damage arcs into nearby adjacent mobs." },
+          { name_pt: "Chance de Atordoamento (Stun Chance)", name_en: "Stun Chance", type: "suffix", values: "+3% • +6% • +12%", desc_pt: "Paralisa temporariamente o inimigo.", desc_en: "Briefly immobilizes and disables enemy attacks." },
+          { name_pt: "Drenagem de Vida (Leech)", name_en: "Life Leech", type: "suffix", values: "+1% • +3% • +6%", desc_pt: "Converte dano infligido em vida própria.", desc_en: "Converts dealt damage percentage into player health." }
+        ]
+      },
+      axe: {
+        name_pt: "Machado (Axe)",
+        name_en: "Battle Axe",
+        mods: [
+          { name_pt: "Dano de Ataque (Attack Damage)", name_en: "Base Attack Damage", type: "implicit", values: "9.0 • 16.0 • 24.0", desc_pt: "Alto dano bruto concentrado.", desc_en: "Heavy concentrated physical burst damage." },
+          { name_pt: "Velocidade de Ataque (Attack Speed)", name_en: "Attack Speed", type: "implicit", values: "1.0", desc_pt: "Cadência calculada e mais pesada.", desc_en: "Slower, high-impact combat pacing." },
+          { name_pt: "Dano Crítico (+Crit Damage)", name_en: "Bonus Critical Damage", type: "prefix", values: "+30% • +60% • +100%", desc_pt: "Multiplicador devastador para golpes críticos.", desc_en: "Massive damage multiplier for critical hits." },
+          { name_pt: "Ataque Cortante (Cleave)", name_en: "Cleave Damage", type: "prefix", values: "+15% • +30% • +50%", desc_pt: "Dano em arco frontal atingindo grupos de monstros.", desc_en: "Frontal cone area-of-effect sweep damage." },
+          { name_pt: "Golpe Fatal (Fatal Strike Chance)", name_en: "Fatal Strike Chance", type: "suffix", values: "+2% • +5% • +10%", desc_pt: "Chance de desferir golpe mortal instantâneo.", desc_en: "Percent chance to deal an instant lethal blow." },
+          { name_pt: "Sangramento (Bleed Chance)", name_en: "Bleed Chance", type: "suffix", values: "+5% • +12% • +25%", desc_pt: "Aplica dano contínuo ao longo do tempo.", desc_en: "Applies damage-over-time bleed status to enemies." }
+        ]
+      },
+      wand: {
+        name_pt: "Varinha (Wand)",
+        name_en: "Wand",
+        mods: [
+          { name_pt: "Poder de Habilidade (Ability Power)", name_en: "Base Ability Power", type: "implicit", values: "+15 • +35 • +65", desc_pt: "Foco exclusivo em potencializar feitiços ofensivos.", desc_en: "Primary catalyst scaling offensive spells." },
+          { name_pt: "Mana Adicional (Mana)", name_en: "Implicit Mana", type: "implicit", values: "+20 • +50 • +90", desc_pt: "Reserva de energia mística.", desc_en: "Extra base resource pool for magic." },
+          { name_pt: "Poder de Feitiço (+Spell Damage)", name_en: "Spell Damage %", type: "prefix", values: "+5% • +12% • +25%", desc_pt: "Aumento percentual em todas as magias ativas.", desc_en: "Percentage boost to all spell abilities." },
+          { name_pt: "Redução de Recarga (CDR)", name_en: "Cooldown Reduction", type: "suffix", values: "+4% • +8% • +14%", desc_pt: "Permite conjuração acelerada de habilidades.", desc_en: "Allows frequent rapid spellcasting." },
+          { name_pt: "Velocidade de Conjuração (Cast Speed)", name_en: "Cast Speed", type: "suffix", values: "+6% • +14% • +24%", desc_pt: "Reduz o tempo de canalização das magias.", desc_en: "Reduces cast animation and charge delays." }
+        ]
+      },
+      shield: {
+        name_pt: "Escudo (Shield)",
+        name_en: "Shield",
+        mods: [
+          { name_pt: "Chance de Bloqueio (Block Chance)", name_en: "Base Block Chance", type: "implicit", values: "15% • 25% • 35%", desc_pt: "Probabilidade passiva de anular 100% do dano frontal.", desc_en: "Passive chance to negate 100% of frontal incoming hits." },
+          { name_pt: "Bloqueio Bônus (+Block Chance)", name_en: "Bonus Block Chance", type: "prefix", values: "+3% • +6% • +10%", desc_pt: "Acumula com o bloqueio implícito.", desc_en: "Stacks directly with base block percentage." },
+          { name_pt: "Dano de Espinhos (Thorns Damage)", name_en: "Thorns Damage", type: "suffix", values: "+15 • +35 • +70", desc_pt: "Dano refletido contra o atacante ao bloquear.", desc_en: "Flat reflected damage dealt upon successful blocks." }
+        ]
+      },
+      idol: {
+        name_pt: "Ídolo (Vault Idol)",
+        name_en: "Vault Idol",
+        mods: [
+          { name_pt: "Graça Divina (God Favor)", name_en: "God Favor", type: "implicit", values: "Tenos • Velara • Wendarr • Idona", desc_pt: "Afiliação perpétua com um dos deuses da Vault.", desc_en: "Permanent affiliation with one of the four Vault Gods." },
+          { name_pt: "Efeito Divino Passivo", name_en: "Divine Passive Blessing", type: "implicit", values: "Luck • Healing • Time • Combat", desc_pt: "Bênção contínua conforme o deus do ídolo.", desc_en: "Unique divine passive scaling with the God's archetype." },
+          { name_pt: "Raridade de Itens (Item Rarity)", name_en: "Item Rarity", type: "suffix", values: "+8% • +16% • +26%", desc_pt: "O maior multiplicador de raridade em itens secundários.", desc_en: "Highest off-hand loot rarity roll in the game." },
+          { name_pt: "Quantidade de Itens (Item Quantity)", name_en: "Item Quantity", type: "suffix", values: "+6% • +12% • +20%", desc_pt: "Multiplicador de volume de drops em baús.", desc_en: "Multiplies total item volume in opened chests." }
+        ]
+      },
+      magnet: {
+        name_pt: "Ímã (Vault Magnet)",
+        name_en: "Vault Magnet",
+        mods: [
+          { name_pt: "Raio de Atração (Range)", name_en: "Magnetic Range", type: "implicit", values: "4m • 7m • 11m", desc_pt: "Distância radial de coleta automática de itens.", desc_en: "Radial reach for automatic item pull." },
+          { name_pt: "Velocidade de Atração (Velocity)", name_en: "Attraction Velocity", type: "implicit", values: "0.2 • 0.4 • 0.7", desc_pt: "Velocidade com que os itens voam até o jogador.", desc_en: "Speed at which pulled items travel to the player." },
+          { name_pt: "Copiosamente (Copiously)", name_en: "Copiously", type: "suffix", values: "+1% • +2% • +4%", desc_pt: "Chance de duplicação de minérios da Vault.", desc_en: "Ore duplication chance on mining." }
+        ]
+      }
     };
 
     let activeSlot = "helmet";
     let activeTypeFilter = "all";
 
+    function renderGearSlotTabs() {
+      const container = document.getElementById("gearSlotsContainer");
+      if (!container) return;
+
+      const keys = Object.keys(GEAR_DATABASE);
+      container.innerHTML = keys.map(k => {
+        const item = GEAR_DATABASE[k];
+        const label = currentLang === "pt" ? item.name_pt : item.name_en;
+        const isActive = k === activeSlot ? "active" : "";
+        return `<button class="gear-tab-btn ${isActive}" data-slot="${k}" onclick="selectGearSlot('${k}')">${label}</button>`;
+      }).join("");
+    }
+
     function selectGearSlot(slotKey) {
       activeSlot = slotKey;
-      document.querySelectorAll(".gear-tab-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.getAttribute("data-slot") === slotKey);
-      });
+      renderGearSlotTabs();
       renderGearTable();
     }
 
@@ -1517,51 +1455,590 @@
 
     function renderGearTable() {
       const tbody = document.getElementById("gearTableBody");
-      const searchTerm = document.getElementById("gearSearchInput").value.toLowerCase().trim();
-      const mods = GEAR_DATABASE[activeSlot] || [];
+      const searchTerm = document.getElementById("gearSearchInput")?.value.toLowerCase().trim() || "";
+      const itemData = GEAR_DATABASE[activeSlot] || { mods: [] };
+      const mods = itemData.mods || [];
 
       const filtered = mods.filter(m => {
         const matchesType = (activeTypeFilter === "all") || (m.type === activeTypeFilter);
-        const matchesSearch = !searchTerm || m.name.toLowerCase().includes(searchTerm) || m.desc.toLowerCase().includes(searchTerm);
+        const name = currentLang === "pt" ? m.name_pt : m.name_en;
+        const desc = currentLang === "pt" ? m.desc_pt : m.desc_en;
+        const matchesSearch = !searchTerm || name.toLowerCase().includes(searchTerm) || desc.toLowerCase().includes(searchTerm);
         return matchesType && matchesSearch;
       });
 
       if (filtered.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 30px;">Nenhum modificador encontrado com os filtros selecionados.</td></tr>`;
+        const noResultsMsg = currentLang === "pt" ? "Nenhum modificador encontrado com os filtros selecionados." : "No modifiers found matching the selected filters.";
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 30px;">${noResultsMsg}</td></tr>`;
         return;
       }
 
       tbody.innerHTML = filtered.map(m => {
         let tagClass = "mod-tag-implicit";
-        let tagLabel = "Implícito";
+        let tagLabel = currentLang === "pt" ? "Implícito" : "Implicit";
         if (m.type === "prefix") {
           tagClass = "mod-tag-prefix";
-          tagLabel = "Prefixo";
+          tagLabel = currentLang === "pt" ? "Prefixo" : "Prefix";
         } else if (m.type === "suffix") {
           tagClass = "mod-tag-suffix";
-          tagLabel = "Sufixo";
+          tagLabel = currentLang === "pt" ? "Sufixo" : "Suffix";
         }
+
+        const name = currentLang === "pt" ? m.name_pt : m.name_en;
+        const desc = currentLang === "pt" ? m.desc_pt : m.desc_en;
 
         return `
           <tr>
-            <td><span class="mod-name-strong">${m.name}</span></td>
+            <td><span class="mod-name-strong">${name}</span></td>
             <td><span class="${tagClass}">${tagLabel}</span></td>
             <td><span class="mod-range-val">${m.values}</span></td>
-            <td><span style="color: var(--text-secondary); font-size: 0.88rem;">${m.desc}</span></td>
+            <td><span style="color: var(--text-secondary); font-size: 0.88rem;">${desc}</span></td>
           </tr>
         `;
       }).join("");
     }
 
     // ========================================================
-    // 2. REAL-TIME SERVER STATUS (DIRECT 9065 PORT QUERY)
+    // BILINGUAL ABILITIES & TALENTS
+    // ========================================================
+    function renderSkillsGrid() {
+      const container = document.getElementById("skillsGridContainer");
+      if (!container) return;
+
+      if (currentLang === "pt") {
+        container.innerHTML = `
+          <div class="system-card">
+            <div class="system-card-title"><span>Dash</span> &bull; Mobilidade Tática</div>
+            <div class="system-content">
+              <p>Impulso direcional de alta velocidade. Essencial para travessia de salas, esquiva de ataques e combate vertical.</p>
+              <ul>
+                <li><b>Base:</b> Impulso frontal padrão com baixo custo de mana.</li>
+                <li><b>Warp:</b> Teleporte pontual de curto alcance sem colisão física.</li>
+                <li><b>Bullet:</b> Projeta o jogador com dano cinético contundente contra mobs no trajeto.</li>
+                <li><b>Cleave:</b> Aplica corte horizontal ao final do movimento de deslocamento.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Vein Miner</span> &bull; Mineração em Massa</div>
+            <div class="system-content">
+              <p>Quebra veios interligados de minérios e blocos em uma única ação contínua.</p>
+              <ul>
+                <li><b>Finesse:</b> Reduz severamente o consumo de durabilidade da ferramenta ao quebrar blocos.</li>
+                <li><b>Fortune:</b> Concede multiplicador bônus de fortuna na quebra de minérios da Vault.</li>
+                <li><b>Void:</b> Desintegra automaticamente resíduos como pedras comuns, liberando inventário.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Heal</span> &bull; Restauração Vital</div>
+            <div class="system-content">
+              <p>Recuperação emergencial instantânea de pontos de vida utilizando sua reserva de Mana.</p>
+              <ul>
+                <li><b>Cleanse:</b> Além de curar, remove veneno, lentidão, murchidão e fadiga de mineração.</li>
+                <li><b>Burst:</b> Restauração concentrada instantânea com tempo de recarga prolongado.</li>
+                <li><b>Effect:</b> Concede regeneração contínua de curto prazo em vez de cura imediata.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Rampage</span> &bull; Dano Explosivo</div>
+            <div class="system-content">
+              <p>Buff temporário de poder ofensivo para derrotar guardiões de obeliscos e chefões.</p>
+              <ul>
+                <li><b>Leech:</b> Uma porcentagem do dano causado é convertida em vida durante o efeito.</li>
+                <li><b>Chaining:</b> Cada golpe corpo a corpo propaga arcos de energia para alvos secundários.</li>
+                <li><b>Damage:</b> Aumento linear puro no multiplicador de dano de ataque corpo a corpo.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Hunter</span> &bull; Detecção de Objetivos</div>
+            <div class="system-content">
+              <p>Destaque visual temporário através das paredes para localizar itens de interesse nas salas.</p>
+              <ul>
+                <li><b>Gilded:</b> Destaca baús dourados (ouro, fragmentos e modificadores).</li>
+                <li><b>Living:</b> Destaca baús biológicos (conhecimento, ervas e sementes).</li>
+                <li><b>Ornate:</b> Destaca baús ornamentados (equipamentos de combate e joias).</li>
+                <li><b>Blocks / Ores:</b> Localiza pilares ocultos de minérios nobres da Vault.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Talentos Passivos</span> &bull; Escala Contínua</div>
+            <div class="system-content">
+              <ul>
+                <li><b>Speed:</b> Aumento permanente na velocidade de movimento do jogador.</li>
+                <li><b>Haste:</b> Velocidade de ataque corpo a corpo e velocidade de quebra de blocos.</li>
+                <li><b>Strength:</b> Aumento de porcentagem de dano base aplicado a qualquer arma.</li>
+                <li><b>Mana Pool:</b> Expansão permanente do limite total da reserva de mana do jogador.</li>
+                <li><b>Looting:</b> Aumento na probabilidade de itens adicionais ao derrotar mobs na Vault.</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="system-card">
+            <div class="system-card-title"><span>Dash</span> &bull; Tactical Mobility</div>
+            <div class="system-content">
+              <p>High-velocity directional thrust. Essential for room navigation, lethal attack evasion, and vertical agility.</p>
+              <ul>
+                <li><b>Base:</b> Standard forward dash with low mana consumption.</li>
+                <li><b>Warp:</b> Short-range instant blink ignoring entity collisions.</li>
+                <li><b>Bullet:</b> Propels the hunter with kinetic impact damage into mobs in your path.</li>
+                <li><b>Cleave:</b> Executes an immediate horizontal sweep slash at the end of the dash trajectory.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Vein Miner</span> &bull; Bulk Harvesting</div>
+            <div class="system-content">
+              <p>Mines contiguous clusters of ores and blocks in a single fluid stroke.</p>
+              <ul>
+                <li><b>Finesse:</b> Drastically mitigates tool durability consumption per harvested block.</li>
+                <li><b>Fortune:</b> Grants bonus fortune drop multiplier on Vault ore veins.</li>
+                <li><b>Void:</b> Instantly voids junk waste blocks (e.g. cobblestone), preserving valuable inventory space.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Heal</span> &bull; Vital Restoration</div>
+            <div class="system-content">
+              <p>Emergency active health recovery consuming your mana pool reserves.</p>
+              <ul>
+                <li><b>Cleanse:</b> In addition to restoring hearts, purges poison, wither, slowness, and fatigue.</li>
+                <li><b>Burst:</b> High-volume instant restoration with an extended cooldown.</li>
+                <li><b>Effect:</b> Applies a short burst of rapid continuous health regeneration.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Rampage</span> &bull; Combat Overcharge</div>
+            <div class="system-content">
+              <p>Temporary combat steroid designed to burst down obelisk guardians and dungeon bosses.</p>
+              <ul>
+                <li><b>Leech:</b> A percentage of all dealt damage returns as player health while active.</li>
+                <li><b>Chaining:</b> Every melee hit propagates electricity arcs into secondary targets.</li>
+                <li><b>Damage:</b> Pure linear multiplier applied to weapon attack damage.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Hunter</span> &bull; Objective Recon</div>
+            <div class="system-content">
+              <p>Temporary X-Ray wall outline highlighting high-priority targets across rooms.</p>
+              <ul>
+                <li><b>Gilded:</b> Highlights gold chests (currency, carbon, modifier focus).</li>
+                <li><b>Living:</b> Highlights biological chests (knowledge shards, seeds, essence).</li>
+                <li><b>Ornate:</b> Highlights ornate chests (unidentified gear, jewelry, relics).</li>
+                <li><b>Blocks / Ores:</b> Locates hidden veins of rare Vault gemstones.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Passive Talents</span> &bull; Permanent Scaling</div>
+            <div class="system-content">
+              <ul>
+                <li><b>Speed:</b> Permanent base sprint and movement velocity increase.</li>
+                <li><b>Haste:</b> Boosts melee attack speed and block-breaking mining rate.</li>
+                <li><b>Strength:</b> Flat percentage weapon damage bonus across all weapon types.</li>
+                <li><b>Mana Pool:</b> Permanently expands maximum mana capacity.</li>
+                <li><b>Looting:</b> Increases bonus drop rates from defeated Vault mobs.</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // ========================================================
+    // BILINGUAL VAULT SYSTEMS
+    // ========================================================
+    function renderVaultsGrid() {
+      const container = document.getElementById("vaultsGridContainer");
+      if (!container) return;
+
+      if (currentLang === "pt") {
+        container.innerHTML = `
+          <div class="system-card">
+            <div class="system-card-title"><span>Altar & Cristais</span></div>
+            <div class="system-content">
+              <p>Para abrir uma Vault, você precisa confeccionar um <b>Vault Crystal</b>:</p>
+              <ul>
+                <li>Crie um <b>Vault Altar</b> e coloque uma <i>Vault Rock</i> (minerada no subsolo).</li>
+                <li>O altar exibirá 4 requisições de itens comuns do mundo Vanilla.</li>
+                <li>Entregue os itens até atingir 100% de infusão.</li>
+                <li>Construa uma moldura de portal com <i>Vault Stone</i> e clique com o cristal para abrir o portal de 25 minutos.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Catalisadores & Modificadores</span></div>
+            <div class="system-content">
+              <p>Você pode infundir cristais na <i>Vault Catalyst Infusion Table</i> antes de abri-los:</p>
+              <ul>
+                <li><b>Plentiful:</b> Multiplica veios de minérios na Vault (+100% por stack).</li>
+                <li><b>Rich:</b> Multiplica baús de madeira (Wooden Chests).</li>
+                <li><b>Gilded / Ornate / Living:</b> Aumenta a concentração dos respectivos baús nobres.</li>
+                <li><b>Extender:</b> Adiciona minutos extras ao cronômetro da Vault.</li>
+                <li><b>Cuidado com Instabilidade:</b> Cada catalisador aplicado adiciona instabilidade ao cristal. Se ultrapassar o limite, o cristal pode adquirir maldições como <i>Frenzy</i> (mobs acelerados).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Classificação de Baús</span></div>
+            <div class="system-content">
+              <ul>
+                <li><b>Wooden Chests:</b> Materiais de construção, Vault Cobblestone e recursos básicos.</li>
+                <li><b>Gilded Chests:</b> Barras de carbono, moedas de ouro, bronze e caixas de mods.</li>
+                <li><b>Living Chests:</b> Fragmentos de Knowledge Star, sementes e essências.</li>
+                <li><b>Ornate Chests:</b> Equipamentos não identificados (Vault Gear), joias e relíquias.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Salas de Alto Valor</span></div>
+            <div class="system-content">
+              <ul>
+                <li><b>Mine Room:</b> Pilares verticais maciços compostos por minérios raros da Vault.</li>
+                <li><b>Treasure Room:</b> Portas fechadas com fechaduras temáticas. Requerem chaves artesanais e guardam baús supremos.</li>
+                <li><b>Omega Room:</b> Salas raras com temáticas especiais (fábricas, bibliotecas, criptas de cristal).</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="system-card">
+            <div class="system-card-title"><span>Altar & Crystal Infusion</span></div>
+            <div class="system-content">
+              <p>To enter a Vault dungeon, you must craft an infused <b>Vault Crystal</b>:</p>
+              <ul>
+                <li>Craft a <b>Vault Altar</b> and place a raw <i>Vault Rock</i> (mined in the deep underground).</li>
+                <li>The altar lists 4 random ingredient requirements from the Vanilla overworld.</li>
+                <li>Deposit requested materials to achieve 100% crystal infusion.</li>
+                <li>Build a portal frame using <i>Vault Stone</i> and click with the crystal to trigger the 25-minute timer.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Catalysts & Modifiers</span></div>
+            <div class="system-content">
+              <p>You can augment crystals at the <i>Catalyst Infusion Table</i> before opening them:</p>
+              <ul>
+                <li><b>Plentiful:</b> Multiplies ore veins throughout the Vault (+100% per stack).</li>
+                <li><b>Rich:</b> Multiplies wooden resource chests.</li>
+                <li><b>Gilded / Ornate / Living:</b> Heavily concentrates the respective high-tier chest types.</li>
+                <li><b>Extender:</b> Adds bonus minutes to the countdown timer.</li>
+                <li><b>Watch Instability:</b> Each infused catalyst adds crystal instability. Crossing limits can roll severe curses like <i>Frenzy</i> (turbocharged mobs).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Chest Tiers & Loot Archetypes</span></div>
+            <div class="system-content">
+              <ul>
+                <li><b>Wooden Chests:</b> Building materials, Vault Cobblestone, and base resources.</li>
+                <li><b>Gilded Chests:</b> Carbon ingots, vault bronze, gold coins, and mod boxes.</li>
+                <li><b>Living Chests:</b> Knowledge Star shards, overworld crop seeds, and essences.</li>
+                <li><b>Ornate Chests:</b> Unidentified Vault Gear armor, weapons, jewels, and relics.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>High-Value Room Archetypes</span></div>
+            <div class="system-content">
+              <ul>
+                <li><b>Mine Room:</b> Gigantic vertical spires composed entirely of precious Vault ores.</li>
+                <li><b>Treasure Room:</b> Locked god chambers requiring hand-crafted keys, housing supreme tier loot.</li>
+                <li><b>Omega Room:</b> Rare themed puzzle rooms (crystal libraries, factories, dig sites).</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // ========================================================
+    // BILINGUAL SERVER SYSTEMS & COMMANDS
+    // ========================================================
+    function renderServerSections() {
+      const container = document.getElementById("serverSystemsContainer");
+      const schedContainer = document.getElementById("serverScheduleCard");
+      if (!container || !schedContainer) return;
+
+      if (currentLang === "pt") {
+        container.innerHTML = `
+          <div class="system-card">
+            <div class="system-card-title"><span>Autenticação & IP Auto-Login</span></div>
+            <div class="system-content">
+              <p>Nosso servidor utiliza um sistema de proteção para garantir a segurança de contas originais e piratas:</p>
+              <ul>
+                <li><b>Primeiro Acesso:</b> <span class="code-chip">/register &lt;senha&gt; &lt;confirmarSenha&gt;</span></li>
+                <li><b>Login Subsequente:</b> <span class="code-chip">/login &lt;senha&gt;</span></li>
+                <li><b>Auto-Login Inteligente por IP:</b> O servidor valida o hash de segurança do último IP conectado. Ao reconectar da mesma máquina, sua sessão é restaurada automaticamente sem necessidade de redigitar a senha.</li>
+                <li><b>Proteção Pré-Login:</b> Jogadores não autenticados permanecem congelados, imunes a qualquer dano e protegidos contra perda de inventário.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Isolamento Crítico nas Vaults</span></div>
+            <div class="system-content">
+              <p>Mecânicas server-side exclusivas para preservar o balanceamento e o foco nas masmorras:</p>
+              <ul>
+                <li><b>Silenciador de Chat na Vault:</b> Dentro de <span class="code-chip">the_vault</span>, o chat global é silenciado para o jogador, mantendo foco nos 25 minutos. Apenas <span class="code-chip">/msg</span> e avisos vitais são exibidos.</li>
+                <li><b>Bloqueio Estrito de Teleportes:</b> Todos os comandos (<span class="code-chip">/home</span>, <span class="code-chip">/tpa</span>, <span class="code-chip">/rtp</span>, <span class="code-chip">/spawn</span>) são estritamente proibidos de serem usados para dentro ou fora de Vaults.</li>
+                <li><b>Trava Preventiva de Reinício (-30m):</b> Faltando 30 minutos para o reinício agendado, a abertura de novas Vaults é bloqueada para prevenir mortes por queda do servidor.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Proteção de Terreno (FLAN) & Economia</span></div>
+            <div class="system-content">
+              <p>Sistema de proteção contra invasões e griefing no mundo Vanilla:</p>
+              <ul>
+                <li><b>Ferramenta de Claim:</b> Utilize a ferramenta oficial do FLAN para demarcar os limites da sua base.</li>
+                <li><b>Compra de Blocos:</b> Execute <span class="code-chip">/comprarclaim &lt;quantidade&gt;</span>.</li>
+                <li><b>Custo Fixo:</b> <b>$1</b> por bloco de claim adquirido. O valor é direcionado para o <b>Tesouro do Servidor</b>, alimentando os fundos públicos da comunidade.</li>
+                <li><b>Gerenciamento:</b> Compartilhe permissões de baús com amigos de confiança pelo menu do FLAN.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Teleportes Dinâmicos por Rank</span></div>
+            <div class="system-content">
+              <p>O tempo imóvel (warmup) e o tempo de recarga (cooldown) diminuem conforme sua progressão:</p>
+              <ul>
+                <li><b>Iniciantes (Unranked):</b> 5 segundos parado para teleporte &bull; Cooldown de 5 minutos.</li>
+                <li><b>Ranks F a D:</b> 4 a 3 segundos parado &bull; Cooldown reduzido.</li>
+                <li><b>Ranks C a A:</b> 2 a 1 segundo parado &bull; Cooldown de 2 a 1 minuto.</li>
+                <li><b>Ranks S & Superiores:</b> <b>0 segundos (Teleporte Instantâneo)</b> &bull; Cooldown de 30 segundos.</li>
+                <li><b>Interrupção:</b> Mover-se ou levar dano cancela o teleporte imediatamente.</li>
+              </ul>
+            </div>
+          </div>
+        `;
+
+        schedContainer.innerHTML = `
+          <div class="system-card-title"><span>Rotina Diária de Reinício do Servidor (Horário de Brasília)</span></div>
+          <div class="system-content">
+            <p>Para garantir taxa de quadros (TPS) perfeita e limpeza de memória do servidor, ocorrem reinícios agendados diariamente às <b>03:00</b> e <b>15:00 (UTC-3)</b>:</p>
+            <ul>
+              <li><b>-30 Minutos:</b> Alerta sonoro no servidor e travamento de entrada em novas Vaults.</li>
+              <li><b>-10 Minutos e -5 Minutos:</b> Mensagens de contagem regressiva e aviso de retorno para as bases.</li>
+              <li><b>-1 Minuto:</b> Alerta sonoro de sino final.</li>
+              <li><b>-10 Segundos:</b> Contagem regressiva visual na tela.</li>
+              <li><b>Protocolo Anti-Dupe:</b> Execução forçada de salvamento de inventários em massa (<span class="code-chip">save-all</span>), desconexão graciosa de jogadores e reinicialização segura dos processos.</li>
+            </ul>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="system-card">
+            <div class="system-card-title"><span>Authentication & IP Auto-Login</span></div>
+            <div class="system-content">
+              <p>Our server enforces a robust security layer for both official and offline player accounts:</p>
+              <ul>
+                <li><b>First Join:</b> <span class="code-chip">/register &lt;password&gt; &lt;confirmPassword&gt;</span></li>
+                <li><b>Subsequent Logins:</b> <span class="code-chip">/login &lt;password&gt;</span></li>
+                <li><b>Smart IP Auto-Login:</b> The server stores a cryptographically salted hash of your validated IP. Reconnecting from the same machine restores your session automatically with zero password friction.</li>
+                <li><b>Pre-Login Freezing:</b> Unauthenticated sessions are completely frozen, immune to damage, and prevented from inventory interactions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Vault Isolation Mechanics</span></div>
+            <div class="system-content">
+              <p>Server-side enforcements designed to preserve competitive integrity and survival focus:</p>
+              <ul>
+                <li><b>Vault Chat Mute:</b> Inside the <span class="code-chip">the_vault</span> dimension, global public chat is muted to allow maximum focus during your 25-minute run. Private tells (<span class="code-chip">/msg</span>) and emergency broadcasts remain visible.</li>
+                <li><b>Teleport Restrictions:</b> All teleport commands (<span class="code-chip">/home</span>, <span class="code-chip">/tpa</span>, <span class="code-chip">/rtp</span>, <span class="code-chip">/spawn</span>) are strictly forbidden into or out of any active Vault.</li>
+                <li><b>Preventive Lockout (-30m):</b> 30 minutes prior to any scheduled server restart, opening new Vault portals is locked to prevent restart deaths.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Land Claims (FLAN) & Economy</span></div>
+            <div class="system-content">
+              <p>Grief-prevention and anti-theft land claiming in the Vanilla overworld:</p>
+              <ul>
+                <li><b>Claiming Tool:</b> Use the official FLAN tool to mark the boundary corners of your property.</li>
+                <li><b>Purchasing Blocks:</b> Execute <span class="code-chip">/buyclaim &lt;amount&gt;</span>.</li>
+                <li><b>Cost:</b> <b>$1</b> per claim block acquired. Funds flow directly into the <b>Server Treasury</b> to support community growth.</li>
+                <li><b>Trust Management:</b> Safely grant container and build permissions to trusted teammates through the FLAN interface.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Rank-Scaled Dynamic Teleports</span></div>
+            <div class="system-content">
+              <p>Stillness warmup times and cooldown timers scale down aggressively with player progression:</p>
+              <ul>
+                <li><b>Unranked (Newcomers):</b> 5-second motionless warmup &bull; 5-minute cooldown.</li>
+                <li><b>Ranks F to D:</b> 4 to 3-second warmup &bull; reduced cooldown.</li>
+                <li><b>Ranks C to A:</b> 2 to 1-second warmup &bull; 2 to 1-minute cooldown.</li>
+                <li><b>Ranks S & Above:</b> <b>0 Seconds (Instant Teleport)</b> &bull; 30-second cooldown.</li>
+                <li><b>Cancellation:</b> Moving or receiving damage during warmup immediately cancels the request.</li>
+              </ul>
+            </div>
+          </div>
+        `;
+
+        schedContainer.innerHTML = `
+          <div class="system-card-title"><span>Automated Daily Restart Schedule (UTC-3 / BRT)</span></div>
+          <div class="system-content">
+            <p>To maintain peak server TPS and memory efficiency, automated restarts execute daily at <b>03:00</b> and <b>15:00 BRT</b>:</p>
+            <ul>
+              <li><b>-30 Minutes:</b> Audible broadcast chime and preventive lock on new Vault portals.</li>
+              <li><b>-10 & -5 Minutes:</b> Countdown reminders advising players to secure positions at base.</li>
+              <li><b>-1 Minute:</b> Final warning bell chime.</li>
+              <li><b>-10 Seconds:</b> On-screen visual title countdown.</li>
+              <li><b>Anti-Dupe Safety Protocol:</b> Enforced synchronous inventory saving (<span class="code-chip">save-all</span>), graceful disconnect, and automated service reboot.</li>
+            </ul>
+          </div>
+        `;
+      }
+    }
+
+    // ========================================================
+    // BILINGUAL ADAPTED COMMANDS TABLE
+    // ========================================================
+    const SERVER_COMMANDS_PT = [
+      { cmd: "/register <senha> <confirmarSenha>", desc: "Registra sua senha no servidor no primeiro acesso.", rest: "Requer no mínimo 4 caracteres." },
+      { cmd: "/login <senha>", desc: "Autentica sua conta em caso de alteração de IP.", rest: "Sessão é mantida via IP inteligente." },
+      { cmd: "/sethome [nome]", desc: "Salva a localização atual como ponto de retorno.", rest: "Proibido dentro de dimensões de Vault." },
+      { cmd: "/home [nome]", desc: "Teleporta o jogador para sua base salva.", rest: "Sujeito ao warmup e cooldown do seu rank." },
+      { cmd: "/tpa <jogador>", desc: "Envia solicitação amigável de teleporte para outro player.", rest: "Alvo precisa aceitar com /tpaccept." },
+      { cmd: "/tpaccept", desc: "Aceita a última solicitação de teleporte recebida.", rest: "Inicia o contador de warmup do emissor." },
+      { cmd: "/tpdeny", desc: "Recusa a solicitação de teleporte pendente.", rest: "Cancela a fila de teleporte." },
+      { cmd: "/spawn", desc: "Retorna ao centro do mundo e ponto comunitário.", rest: "Sujeito a cooldown de teleporte." },
+      { cmd: "/comprarclaim <quantidade>", desc: "Adquire blocos adicionais de proteção de terreno FLAN.", rest: "Custo de $1 por bloco via carteira." },
+      { cmd: "/msg <jogador> <texto>", desc: "Envia mensagem privada direta para outro jogador online.", rest: "Funciona mesmo para jogadores dentro da Vault." }
+    ];
+
+    const SERVER_COMMANDS_EN = [
+      { cmd: "/register <password> <confirmPassword>", desc: "Registers your account password on first join.", rest: "Requires at least 4 characters." },
+      { cmd: "/login <password>", desc: "Authenticates your session if connecting from a new IP.", rest: "Persistent via smart IP auto-login." },
+      { cmd: "/sethome [name]", desc: "Saves current coordinates as a personal home waypoint.", rest: "Forbidden inside Vault dimensions." },
+      { cmd: "/home [name]", desc: "Teleports you back to your saved home base.", rest: "Subject to rank warmup & cooldown." },
+      { cmd: "/tpa <player>", desc: "Sends a friendly teleport request to another online player.", rest: "Target must confirm with /tpaccept." },
+      { cmd: "/tpaccept", desc: "Accepts the most recent pending incoming teleport request.", rest: "Starts the sender's motionless warmup timer." },
+      { cmd: "/tpdeny", desc: "Declines a pending incoming teleport request.", rest: "Cancels teleport queue immediately." },
+      { cmd: "/spawn", desc: "Teleports back to the central overworld spawn point.", rest: "Subject to teleport cooldown." },
+      { cmd: "/buyclaim <amount>", desc: "Purchases additional land claim blocks via FLAN.", rest: "$1 per block deducted from balance." },
+      { cmd: "/msg <player> <text>", desc: "Sends a private direct whisper to an online player.", rest: "Permitted even to players inside Vaults." }
+    ];
+
+    function renderCommandTable() {
+      const tbody = document.getElementById("commandTableBody");
+      if (!tbody) return;
+
+      const list = currentLang === "pt" ? SERVER_COMMANDS_PT : SERVER_COMMANDS_EN;
+      tbody.innerHTML = list.map(c => `
+        <tr>
+          <td><span class="code-chip">${c.cmd}</span></td>
+          <td>${c.desc}</td>
+          <td><span style="color: var(--text-muted); font-size: 0.85rem;">${c.rest}</span></td>
+        </tr>
+      `).join("");
+    }
+
+    // ========================================================
+    // BILINGUAL DOWNLOAD & SPECS
+    // ========================================================
+    function renderDownloadSpecs() {
+      const container = document.getElementById("dlSpecsContainer");
+      if (!container) return;
+
+      if (currentLang === "pt") {
+        container.innerHTML = `
+          <div class="system-card">
+            <div class="system-card-title"><span>Arquitetura Portátil & Independente</span></div>
+            <div class="system-content">
+              <p>O launcher <b>VH - Manzi</b> foi desenvolvido em arquitetura 100% independente do inicializador padrão do Minecraft:</p>
+              <ul>
+                <li><b>Java 17 Embutido:</b> Não é necessário instalar ou atualizar Java no Windows. O launcher traz o Adoptium OpenJDK 17 Temurin configurado e isolado na pasta de instalação.</li>
+                <li><b>Sem Conflitos com %AppData%:</b> Os arquivos do modpack residem em pasta dedicada, impedindo que mundos de outras versões sejam sobrescritos.</li>
+                <li><b>Auto-Updater Silencioso:</b> O executável compara sua versão diretamente com o GitHub. Havendo novidades, substitui a si mesmo sem exigir novos downloads manuais.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Alocação de Memória RAM & FPS Boost</span></div>
+            <div class="system-content">
+              <p>O Vault Hunters 3rd Edition carrega mais de 100 mods complexos de RPG e renderização:</p>
+              <ul>
+                <li><b>RAM Recomendada:</b> <b>8 GB</b> de RAM alocados no controle deslizante do launcher.</li>
+                <li><b>Computadores com 8 GB Totais:</b> Aloque <b>6 GB</b> de RAM e ative a chave <b>FPS Boost</b>.</li>
+                <li><b>Otimizações do FPS Boost:</b> Desativa modificadores cosméticos pesados (shaders, tooltips 3D) e reconfigura o Embeddium para processamento de chunks assíncrono.</li>
+                <li><b>Compatibilidade Garantida:</b> Blocos funcionais (como telas do WaterFrames e canais de áudio) permanecem ativos, permitindo conexão normal ao servidor.</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="system-card">
+            <div class="system-card-title"><span>Portable & Isolated Architecture</span></div>
+            <div class="system-content">
+              <p>The <b>VH - Manzi</b> launcher operates independently from standard vanilla Minecraft launchers:</p>
+              <ul>
+                <li><b>Embedded Java 17:</b> No external Java installation is needed on Windows. The launcher includes an isolated, pre-configured Adoptium OpenJDK 17 Temurin JRE.</li>
+                <li><b>Zero %AppData% Conflicts:</b> Modpack instances live in their own dedicated directory, ensuring vanilla saves or other versions remain untouched.</li>
+                <li><b>Silent Self-Updating:</b> The client automatically detects new releases on GitHub, smoothly self-updating without manual file transfers.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>RAM Allocation & Ultra FPS Boost</span></div>
+            <div class="system-content">
+              <p>Vault Hunters 3rd Edition runs over 100 deep RPG and rendering systems simultaneously:</p>
+              <ul>
+                <li><b>Recommended RAM:</b> <b>8 GB</b> allocated via the launcher slider.</li>
+                <li><b>Systems with 8 GB Total:</b> Allocate <b>6 GB</b> and toggle the <b>FPS Boost</b> switch.</li>
+                <li><b>FPS Boost Optimizations:</b> Disables cosmetic shaders and 3D tooltips while tuning Embeddium for aggressive entity culling and async chunk loads.</li>
+                <li><b>Full Server Compatibility:</b> Functional block registries (like WaterFrames screens and audio channels) remain active to prevent connection drops.</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // ========================================================
+    // REAL-TIME SERVER STATUS PING (DIRECT PORT 9065)
     // ========================================================
     async function queryLiveServerStatus() {
       const liveDot = document.getElementById("liveDot");
       const liveStatusText = document.getElementById("liveStatusText");
       const livePlayerPill = document.getElementById("livePlayerPill");
+      const dict = I18N[currentLang] || I18N.pt;
 
-      // Direct query to the server IP and port that Minecraft actually uses:
       const targetEndpoint = "https://api.mcstatus.io/v2/status/java/169.155.122.64:9065";
 
       try {
@@ -1571,9 +2048,9 @@
           if (data.online) {
             liveDot.style.background = "#10b981";
             liveDot.style.boxShadow = "0 0 10px #10b981";
-            liveStatusText.innerText = "ONLINE - Servidor em Operação";
+            liveStatusText.innerText = dict.status_online;
             liveStatusText.style.color = "#34d399";
-            livePlayerPill.innerHTML = `Jogadores: <b>${data.players.online} / ${data.players.max}</b>`;
+            livePlayerPill.innerHTML = `${dict.status_players}: <b>${data.players.online} / ${data.players.max}</b>`;
             return;
           }
         }
@@ -1581,14 +2058,13 @@
         console.warn("[Status] mcstatus ping error:", e);
       }
 
-      // Safe fallback indicator
       liveDot.style.background = "#10b981";
-      liveStatusText.innerText = "ONLINE - Conexão Ativa";
+      liveStatusText.innerText = dict.status_online;
       livePlayerPill.innerHTML = "jogar.vhmanzi.com";
     }
 
     // ========================================================
-    // 3. TAB NAVIGATION
+    // TAB NAVIGATION
     // ========================================================
     function navigateTab(tabKey) {
       document.querySelectorAll(".view-section").forEach(sec => sec.classList.remove("active"));
@@ -1608,7 +2084,7 @@
     }
 
     // ========================================================
-    // 4. IP COPY TO CLIPBOARD
+    // IP CLIPBOARD COPY
     // ========================================================
     function copyIpAddress() {
       const ip = "jogar.vhmanzi.com";
@@ -1623,10 +2099,10 @@
       });
     }
 
-    // Init on load
+    // Init on DOM Ready
     document.addEventListener("DOMContentLoaded", () => {
-      renderGearTable();
-      queryLiveServerStatus();
+      currentLang = getInitialLang();
+      applyLanguage(currentLang);
       setInterval(queryLiveServerStatus, 45000);
     });
   </script>
