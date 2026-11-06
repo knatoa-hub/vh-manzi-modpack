@@ -874,7 +874,7 @@
             <div class="server-connect-card" onclick="copyIpAddress()" title="Clique para copiar">
               <div class="connect-meta">
                 <div class="connect-label" data-i18n="lbl_server_addr">Endereço de Conexão</div>
-                <div class="connect-ip" id="serverIpLabel">jogar.vhmanzi.com</div>
+                <div class="connect-ip" id="serverIpLabel">vh-manzi.net</div>
               </div>
               <div class="btn-copy-box">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -2265,7 +2265,7 @@
 
       liveDot.style.background = "#10b981";
       liveStatusText.innerText = dict.status_online;
-      livePlayerPill.innerHTML = "jogar.vhmanzi.com";
+      livePlayerPill.innerHTML = "vh-manzi.net";
     }
 
     // ========================================================
@@ -2292,7 +2292,7 @@
     // IP CLIPBOARD COPY
     // ========================================================
     function copyIpAddress() {
-      const ip = "jogar.vhmanzi.com";
+      const ip = "vh-manzi.net";
       navigator.clipboard.writeText(ip).then(() => {
         const badge = document.getElementById("copyBadge");
         badge.classList.add("active");
