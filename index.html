@@ -1167,7 +1167,7 @@
         vaults_head_title: "Sistemas e Estrutura das Vaults",
         vaults_head_desc: "Entenda as regras de geração procedural das masmorras, a criação de cristais, modificadores de catalisadores e tipos de baús.",
         server_head_title: "Servidor VH - Manzi: Mecânicas & Especificações",
-        server_head_desc: "Documentação das regras do servidor, sistema de autenticação, proteção de terreno FLAN, escalonamento de ranks e protocolo de reinício.",
+        server_head_desc: "Documentação completa: Economia Rígida $100M, Sistema de Títulos, Lojas de Baú, Imposto Territorial FLAN (IPTU), Canais de Chat, Combate & AFK, Vitrine e Rotina de Reinício.",
         th_cmd: "Comando",
         th_cmd_desc: "Função / Descrição",
         th_cmd_rest: "Restrições / Observações",
@@ -1225,7 +1225,7 @@
         vaults_head_title: "Vault Dungeon Systems",
         vaults_head_desc: "Learn procedural dungeon generation mechanics, crystal crafting, catalyst modifications, and chest categories.",
         server_head_title: "VH - Manzi Server: Specifications & Mechanics",
-        server_head_desc: "Official server documentation covering authentication, FLAN claim protections, rank perks, and automated safety routines.",
+        server_head_desc: "Complete documentation: $100M Fixed Economy, Titles & Nobility, ChestShops, FLAN Land Tax (IPTU), Chat Channels, Combat & AFK, Showcase & Routine Restarts.",
         th_cmd: "Command",
         th_cmd_desc: "Function / Description",
         th_cmd_rest: "Restrictions / Notes",
@@ -1789,12 +1789,122 @@
           <div class="system-card">
             <div class="system-card-title"><span>Autenticação & IP Auto-Login</span></div>
             <div class="system-content">
-              <p>Nosso servidor utiliza um sistema de proteção para garantir a segurança de contas originais e piratas:</p>
+              <p>Proteção de contas para jogadores com perfil original ou offline:</p>
               <ul>
                 <li><b>Primeiro Acesso:</b> <span class="code-chip">/register &lt;senha&gt; &lt;confirmarSenha&gt;</span></li>
                 <li><b>Login Subsequente:</b> <span class="code-chip">/login &lt;senha&gt;</span></li>
-                <li><b>Auto-Login Inteligente por IP:</b> O servidor valida o hash de segurança do último IP conectado. Ao reconectar da mesma máquina, sua sessão é restaurada automaticamente sem necessidade de redigitar a senha.</li>
-                <li><b>Proteção Pré-Login:</b> Jogadores não autenticados permanecem congelados, imunes a qualquer dano e protegidos contra perda de inventário.</li>
+                <li><b>Auto-Login Inteligente:</b> Salva com segurança o IP autenticado. Ao reconectar da mesma máquina, sua sessão é restaurada sem precisar redigitar a senha.</li>
+                <li><b>Proteção Pré-Login:</b> Usuários não logados permanecem imunes a dano e congelados até a validação.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Sistema de Títulos & Nobreza</span></div>
+            <div class="system-content">
+              <p>Hierarquia social escalonada por prestígio econômico e progressão:</p>
+              <ul>
+                <li><b>Forasteiro [---]:</b> Título inicial &bull; 3 homes &bull; 5s delay &bull; 3 slots na Vitrine.</li>
+                <li><b>Plebeu [PLB] ($500):</b> Desbloqueia Chat Global (<span class="code-chip">/g</span>) &bull; 4 homes &bull; 4s delay &bull; 5 slots na Vitrine.</li>
+                <li><b>Cidadão [CID] ($100k):</b> 5 homes &bull; 3s delay &bull; 7 slots na Vitrine.</li>
+                <li><b>Burguês [BRG] ($250k):</b> Libera Licença de Mercador &bull; Acesso ao Chat Comércio (<span class="code-chip">/cc</span>) &bull; 6 homes &bull; 2s delay &bull; 10 slots na Vitrine.</li>
+                <li><b>Aristocrata [ART] ($500k):</b> 7 homes &bull; 1s delay &bull; 15 slots na Vitrine.</li>
+                <li><b>Nobre [NBR] ($1M):</b> 10 homes &bull; <b>0s delay (Teleporte Instantâneo)</b> &bull; 20 slots na Vitrine.</li>
+                <li><b>Barão [BAR] (Apoiador):</b> Título permanente de doador &bull; 7 homes &bull; 2s delay &bull; 15 slots na Vitrine.</li>
+                <li><b>Marquês [MAQ] (VIP Mensal):</b> 10 homes &bull; 0s delay &bull; 30 slots na Vitrine &bull; <span class="code-chip">/keepinventory</span> &bull; Vitrine remota (<span class="code-chip">/ah menu</span>) &bull; Consulta de tempo com <span class="code-chip">/maq</span>.</li>
+                <li><b>Identidade Visual:</b> Tags exclusivas no chat, tablist e sobre a cabeça do personagem (Rank de Vault na linha superior e [Título] Nick na inferior). Gerencie com <span class="code-chip">/titulo</span>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Economia Rígida $100M & Tesouro Público</span></div>
+            <div class="system-content">
+              <p>Estrutura monetária balanceada sem inflação artificial:</p>
+              <ul>
+                <li><b>Teto Global Fixo ($100M):</b> A soma total de todo o dinheiro do servidor (carteiras, bancos, cotas e Tesouro Público) é cravada em exatamente <b>$100.000.000,00</b>.</li>
+                <li><b>Circulação Fechada:</b> Nenhum dinheiro é impresso sem lastro; pagamentos e recompensas são debitados ou creditados diretamente no <b>Tesouro Público</b>.</li>
+                <li><b>Poupança com Juros Compostos:</b> Rende <b>~0,4%/hora</b> sobre o saldo bancário com 2 casas decimais, rodando continuamente inclusive quando offline.</li>
+                <li><b>Reajustes Semanais (Sextas às 01:00 BRT):</b> Recalibração programada de taxas de juros, dividendos de investimentos e cotações do servidor.</li>
+                <li><b>Rankings de Riqueza e Vaults:</b> Veja os mais ricos com <span class="code-chip">/bal top</span> (inclui jogadores offline) e os maiores desbravadores de Vaults com <span class="code-chip">/rank top</span>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Lojas de Baú dos Jogadores (ChestShop)</span></div>
+            <div class="system-content">
+              <p>Monte seu próprio empório comercial utilizando baús, barris e placas interativas:</p>
+              <ul>
+                <li><b>Como Operar:</b> <b>Bater na placa</b> (Clique Esquerdo) compra itens; <b>Clicar na placa</b> (Clique Direito) vende itens para o container.</li>
+                <li><b>Estrutura da Placa:</b> Linha 1: <i>Seu Nick</i> &bull; Linha 2: <i>Quantidade</i> &bull; Linha 3: <i>B 10.00 : S 5.00</i> &bull; Linha 4: <i>Nome do Item</i> (ou clique com '?' na placa).</li>
+                <li><b>Licença de Mercador:</b> Jogadores a partir de Burguês [BRG] podem comprar a licença por $200.000 (<span class="code-chip">/licenca comprar</span>). Taxa de criação de apenas $50 por placa.</li>
+                <li><b>Proteção Anti-Fraude:</b> Placas são travadas contra edições por terceiros. Preços de lojas de jogadores <b>não</b> sofrem alterações nas sextas-feiras.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Loja Pública do Servidor & /sellall</span></div>
+            <div class="system-content">
+              <p>Venda produtos agrícolas, minérios e recursos excedentes para o Tesouro:</p>
+              <ul>
+                <li><b>Venda Instantânea:</b> O comando <span class="code-chip">/sellall</span> analisa seu inventário e vende todos os itens aceitos pela Loja Pública de uma só vez.</li>
+                <li><b>Proteção de Frações:</b> A loja consome apenas lotes múltiplos exatos da quantia requerida (ex: lotes de 64). Sobras incompletas permanecem no inventário sem sumir e sem pagamento quebrado.</li>
+                <li><b>Fundos Oficiais:</b> Todos os pagamentos são emitidos de forma transparente a partir do Tesouro Público.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Proteção de Terreno (FLAN) & IPTU Semanal</span></div>
+            <div class="system-content">
+              <p>Segurança territorial no Overworld e responsabilidade tributária:</p>
+              <ul>
+                <li><b>Fim do Ganho Passivo:</b> Blocos de claim agora são obtidos exclusivamente por mérito via <span class="code-chip">/buyclaimblocks &lt;qtd&gt;</span> ($1 por bloco).</li>
+                <li><b>Imposto Territorial (IPTU):</b> Claims com <b>1000 blocos ou mais</b>, ou jogadores com <b>3 ou mais terrenos</b>, pagam taxa de manutenção semanal.</li>
+                <li><b>Menu de Gestão:</b> Acompanhe seus prazos e saldo de imposto em <span class="code-chip">/claims</span> ou <span class="code-chip">/iptu</span>.</li>
+                <li><b>Confirmação Interativa:</b> Ao redimensionar um terreno para o limite tributável, confirme via chat (<span class="code-chip">/iptu confirm</span>). O cancelamento preserva exatamente as bordas originais.</li>
+                <li><b>Limpeza de Terrenos:</b> Claims com imposto vencido são desalojados, e construções de contas inativas por 30+ dias são removidas.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Canais de Chat & Otimização Visual</span></div>
+            <div class="system-content">
+              <p>Comunicação organizada em múltiplos canais especializados:</p>
+              <ul>
+                <li><b>Local (<span class="code-chip">/l</span> ou <span class="code-chip">/-</span>):</b> Raio de 500 blocos (cobre 100% da dimensão em Vaults) &bull; Cor amarela &bull; Cooldown de 1s.</li>
+                <li><b>Global (<span class="code-chip">/g</span> ou <span class="code-chip">/*</span>):</b> Alcance em todo o servidor (oculto dentro de Vaults) &bull; Cor branca &bull; Requer Plebeu+ &bull; Cooldown de 5s.</li>
+                <li><b>Ajuda (<span class="code-chip">/ajuda</span> ou <span class="code-chip">/aj</span>):</b> Dúvidas entre iniciantes e ajudantes veteranos &bull; Cor magenta &bull; Guia geral acessível por <span class="code-chip">/guia</span>.</li>
+                <li><b>Comércio (<span class="code-chip">/cc</span> ou <span class="code-chip">/chatcomercio</span>):</b> Anúncios de lojas e negociações &bull; Cor ciano &bull; Requer Burguês ou Licença.</li>
+                <li><b>Fixo vs Rápido:</b> Digite apenas o prefixo (<span class="code-chip">/g</span>) para travar o canal, ou <span class="code-chip">/g &lt;msg&gt;</span> para disparo rápido. Configure visualizações no <span class="code-chip">/menu</span>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Tag de Combate & Modo AFK</span></div>
+            <div class="system-content">
+              <p>Mecânicas para integridade em combate e segurança em ausências:</p>
+              <ul>
+                <li><b>Tag de Combate (10s):</b> Sofrer dano ou atacar ativa um timer de 10s exibido na barra lateral. Enquanto estiver em combate, <b>todos os comandos de teleporte são bloqueados</b>.</li>
+                <li><b>Warmup do /home:</b> O tempo de espera imóvel varia de 5s (iniciantes) até 0s (nobres). Mover-se ou sofrer dano cancela o teleporte.</li>
+                <li><b>Modo AFK (<span class="code-chip">/afk</span>):</b> Concede imunidade total a danos e repulsão (knockback) enquanto estiver ausente. É cancelado automaticamente ao andar (WASD), pular ou bater.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Vitrine & Leilões Reformulados (/ah)</span></div>
+            <div class="system-content">
+              <p>Mercado de itens de luxo, gemas e equipamentos especiais:</p>
+              <ul>
+                <li><b>Vitrine com Preço Fixo (BIN):</b> Anúncios permanentes sem expiração forçada; seus itens ficam à venda até outro jogador adquiri-los.</li>
+                <li><b>Leilões por Lance:</b> Modalidade tradicional com timer configurável para itens de disputa acirrada.</li>
+                <li><b>Slots Escalonados:</b> De 3 slots (Forasteiro) até 30 slots (Marquês VIP).</li>
+                <li><b>Acesso:</b> Pelo NPC no Spawn ou remotamente via <span class="code-chip">/ah menu</span> para portadores do título Marquês.</li>
               </ul>
             </div>
           </div>
@@ -1802,38 +1912,12 @@
           <div class="system-card">
             <div class="system-card-title"><span>Isolamento Crítico nas Vaults</span></div>
             <div class="system-content">
-              <p>Mecânicas server-side exclusivas para preservar o balanceamento e o foco nas masmorras:</p>
+              <p>Preservação do desafio e foco nas masmorras procedurais:</p>
               <ul>
-                <li><b>Silenciador de Chat na Vault:</b> Dentro de <span class="code-chip">the_vault</span>, o chat global é silenciado para o jogador, mantendo foco nos 25 minutos. Apenas <span class="code-chip">/msg</span> e avisos vitais são exibidos.</li>
-                <li><b>Bloqueio Estrito de Teleportes:</b> Todos os comandos (<span class="code-chip">/home</span>, <span class="code-chip">/tpa</span>, <span class="code-chip">/rtp</span>, <span class="code-chip">/spawn</span>) são estritamente proibidos de serem usados para dentro ou fora de Vaults.</li>
-                <li><b>Trava Preventiva de Reinício (-30m):</b> Faltando 30 minutos para o reinício agendado, a abertura de novas Vaults é bloqueada para prevenir mortes por queda do servidor.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="system-card">
-            <div class="system-card-title"><span>Proteção de Terreno (FLAN) & Economia</span></div>
-            <div class="system-content">
-              <p>Sistema de proteção contra invasões e griefing no mundo Vanilla:</p>
-              <ul>
-                <li><b>Ferramenta de Claim:</b> Utilize a ferramenta oficial do FLAN para demarcar os limites da sua base.</li>
-                <li><b>Compra de Blocos:</b> Execute <span class="code-chip">/comprarclaim &lt;quantidade&gt;</span>.</li>
-                <li><b>Custo Fixo:</b> <b>$1</b> por bloco de claim adquirido. O valor é direcionado para o <b>Tesouro do Servidor</b>, alimentando os fundos públicos da comunidade.</li>
-                <li><b>Gerenciamento:</b> Compartilhe permissões de baús com amigos de confiança pelo menu do FLAN.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="system-card">
-            <div class="system-card-title"><span>Teleportes Dinâmicos por Rank</span></div>
-            <div class="system-content">
-              <p>O tempo imóvel (warmup) e o tempo de recarga (cooldown) diminuem conforme sua progressão:</p>
-              <ul>
-                <li><b>Iniciantes (Unranked):</b> 5 segundos parado para teleporte &bull; Cooldown de 5 minutos.</li>
-                <li><b>Ranks F a D:</b> 4 a 3 segundos parado &bull; Cooldown reduzido.</li>
-                <li><b>Ranks C a A:</b> 2 a 1 segundo parado &bull; Cooldown de 2 a 1 minuto.</li>
-                <li><b>Ranks S & Superiores:</b> <b>0 segundos (Teleporte Instantâneo)</b> &bull; Cooldown de 30 segundos.</li>
-                <li><b>Interrupção:</b> Mover-se ou levar dano cancela o teleporte imediatamente.</li>
+                <li><b>Silenciador de Chat Global:</b> Dentro de <span class="code-chip">the_vault</span>, o chat global é ocultado para imersão total. O chat local (<span class="code-chip">/l</span>) e mensagens privadas (<span class="code-chip">/msg</span>) permanecem ativos.</li>
+                <li><b>Trava Anti-Exploit de Party:</b> O servidor impede a criação ou envio de convites de grupo (<span class="code-chip">/party</span>) após o início do relógio da Vault.</li>
+                <li><b>Bloqueio Estrito de Teleportes:</b> Qualquer comando de teleporte para dentro ou fora de Vaults é estritamente proibido.</li>
+                <li><b>Trava Preventiva de Reinício (-30m):</b> Abertura de novos portais é bloqueada 30 minutos antes do reinício do servidor.</li>
               </ul>
             </div>
           </div>
@@ -1842,13 +1926,14 @@
         schedContainer.innerHTML = `
           <div class="system-card-title"><span>Rotina Diária de Reinício do Servidor (Horário de Brasília)</span></div>
           <div class="system-content">
-            <p>Para garantir taxa de quadros (TPS) perfeita e limpeza de memória do servidor, ocorrem reinícios agendados diariamente às <b>03:00</b> e <b>15:00 (UTC-3)</b>:</p>
+            <p>Para garantir taxa de quadros (TPS) perfeita e limpeza de memória do servidor, ocorrem reinícios agendados diariamente às <b>01:00</b> e <b>14:00 (UTC-3)</b>:</p>
             <ul>
               <li><b>-30 Minutos:</b> Alerta sonoro no servidor e travamento de entrada em novas Vaults.</li>
               <li><b>-10 Minutos e -5 Minutos:</b> Mensagens de contagem regressiva e aviso de retorno para as bases.</li>
               <li><b>-1 Minuto:</b> Alerta sonoro de sino final.</li>
               <li><b>-10 Segundos:</b> Contagem regressiva visual na tela.</li>
-              <li><b>Protocolo Anti-Dupe:</b> Execução forçada de salvamento de inventários em massa (<span class="code-chip">save-all</span>), desconexão graciosa de jogadores e reinicialização segura dos processos.</li>
+              <li><b>Sexta-feira às 01:00 BRT:</b> Calibração semanal de taxas de juros bancários, dividendos de investimentos e preços do servidor.</li>
+              <li><b>Protocolo Anti-Dupe:</b> Execução forçada de salvamento de inventários em massa (<span class="code-chip">save-all</span>), desconexão graciosa de jogadores e reinicialização limpa dos processos.</li>
             </ul>
           </div>
         `;
@@ -1857,12 +1942,122 @@
           <div class="system-card">
             <div class="system-card-title"><span>Authentication & IP Auto-Login</span></div>
             <div class="system-content">
-              <p>Our server enforces a robust security layer for both official and offline player accounts:</p>
+              <p>Robust account security for both official and offline player sessions:</p>
               <ul>
                 <li><b>First Join:</b> <span class="code-chip">/register &lt;password&gt; &lt;confirmPassword&gt;</span></li>
                 <li><b>Subsequent Logins:</b> <span class="code-chip">/login &lt;password&gt;</span></li>
-                <li><b>Smart IP Auto-Login:</b> The server stores a cryptographically salted hash of your validated IP. Reconnecting from the same machine restores your session automatically with zero password friction.</li>
-                <li><b>Pre-Login Freezing:</b> Unauthenticated sessions are completely frozen, immune to damage, and prevented from inventory interactions.</li>
+                <li><b>Smart IP Auto-Login:</b> Securely remembers authenticated IPs. Reconnecting from the same machine logs you in automatically with zero password hassle.</li>
+                <li><b>Pre-Login Safety:</b> Unauthenticated players remain frozen and completely immune to damage until logged in.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Titles & Nobility System</span></div>
+            <div class="system-content">
+              <p>Social hierarchy scaling with financial milestone and server progression:</p>
+              <ul>
+                <li><b>Outsider [---]:</b> Default starting title &bull; 3 homes &bull; 5s delay &bull; 3 Showcase slots.</li>
+                <li><b>Plebeian [PLB] ($500):</b> Unlocks Global Chat (<span class="code-chip">/g</span>) &bull; 4 homes &bull; 4s delay &bull; 5 Showcase slots.</li>
+                <li><b>Citizen [CID] ($100k):</b> 5 homes &bull; 3s delay &bull; 7 Showcase slots.</li>
+                <li><b>Bourgeois [BRG] ($250k):</b> Eligible for Merchant License &bull; Trade Chat (<span class="code-chip">/cc</span>) &bull; 6 homes &bull; 2s delay &bull; 10 Showcase slots.</li>
+                <li><b>Aristocrat [ART] ($500k):</b> 7 homes &bull; 1s delay &bull; 15 Showcase slots.</li>
+                <li><b>Noble [NBR] ($1M):</b> 10 homes &bull; <b>0s delay (Instant Teleport)</b> &bull; 20 Showcase slots.</li>
+                <li><b>Baron [BAR] (Donor):</b> Permanent supporter title &bull; 7 homes &bull; 2s delay &bull; 15 Showcase slots.</li>
+                <li><b>Marquess [MAQ] (Monthly VIP):</b> 10 homes &bull; 0s delay &bull; 30 Showcase slots &bull; <span class="code-chip">/keepinventory</span> toggle &bull; Portable Showcase (<span class="code-chip">/ah menu</span>) &bull; Time check via <span class="code-chip">/maq</span>.</li>
+                <li><b>Visual Prestige:</b> Title tags displayed in chat, tablist, and overhead nametags (Vault Rank on top line, [Tag] Name on bottom line). Manage with <span class="code-chip">/titulo</span>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>$100M Fixed Economy & Public Treasury</span></div>
+            <div class="system-content">
+              <p>Non-inflationary, closed-loop monetary system backed by the Treasury:</p>
+              <ul>
+                <li><b>Hard Global Cap ($100M):</b> Total server currency across all player pockets, banks, investment shares, and the Public Treasury is strictly capped at <b>$100,000,000.00</b>.</li>
+                <li><b>Closed Circulation:</b> No unbacked money printing; public server payouts and fees flow directly into or out of the <b>Public Treasury</b>.</li>
+                <li><b>Compound Interest Savings:</b> Bank balances yield <b>~0.4%/hour</b> with 2 decimal precision, accruing continuously even when offline.</li>
+                <li><b>Friday Economic Reset (01:00 BRT):</b> Weekly calibration of savings interest rates, share dividend payouts, and fluctuating shop values.</li>
+                <li><b>Leaderboards:</b> View the server's wealthiest players with <span class="code-chip">/bal top</span> (includes offline accounts) and top dungeon adventurers with <span class="code-chip">/rank top</span>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Player Container Shops (ChestShop)</span></div>
+            <div class="system-content">
+              <p>Establish automated commercial storefronts with chests, barrels, and signs:</p>
+              <ul>
+                <li><b>Simple Interaction:</b> <b>Punch sign</b> (Left-Click) to buy; <b>Right-click sign</b> to sell items into the container.</li>
+                <li><b>Sign Layout:</b> Line 1: <i>Your Username</i> &bull; Line 2: <i>Batch Amount</i> &bull; Line 3: <i>B 10.00 : S 5.00</i> &bull; Line 4: <i>Item Name</i> (or hit with '?' in hand).</li>
+                <li><b>Merchant License:</b> Players at Bourgeois [BRG] or above can purchase a license for $200,000 (<span class="code-chip">/licenca comprar</span>). Modest $50 registry fee per shop.</li>
+                <li><b>Fraud Immunity:</b> Active signs cannot be altered or hijacked by others. Player shop prices are exempt from weekly Friday market shifts.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Public Server Shop & /sellall</span></div>
+            <div class="system-content">
+              <p>Sell agricultural yields, ores, and dungeon spoils directly to the Treasury:</p>
+              <ul>
+                <li><b>One-Shot Liquidation:</b> <span class="code-chip">/sellall</span> scans your entire inventory and sells all eligible items to the server instantly.</li>
+                <li><b>Remainder Protection:</b> Sales only consume full designated batch multiples (e.g., stacks of 64). Incomplete remainders stay safe in your inventory.</li>
+                <li><b>Direct Treasury Funding:</b> All proceeds are funded from the transparent server pool.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>FLAN Land Protection & Weekly Land Tax (IPTU)</span></div>
+            <div class="system-content">
+              <p>Overworld grief-prevention paired with fair territorial taxation:</p>
+              <ul>
+                <li><b>No Passive Claims:</b> Claim blocks are earned through economic achievement via <span class="code-chip">/buyclaimblocks &lt;amount&gt;</span> ($1 per block).</li>
+                <li><b>Land Tax (IPTU):</b> Claims measuring <b>1000 blocks or more</b>, or players owning <b>3 or more separate claims</b>, pay a modest weekly maintenance fee.</li>
+                <li><b>Management Menu:</b> Check your claims, active taxes, and remaining time using <span class="code-chip">/claims</span> or <span class="code-chip">/iptu</span>.</li>
+                <li><b>Interactive Confirmation:</b> Resizing claims past tax thresholds prompts a chat confirmation (<span class="code-chip">/iptu confirm</span>). Cancellation preserves exact original boundaries.</li>
+                <li><b>Space Reclamation:</b> Delinquent claims are evicted, and claims inactive for over 30 days are automatically recycled.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Chat Channels & Display Modes</span></div>
+            <div class="system-content">
+              <p>Specialized chat channels to streamline communication:</p>
+              <ul>
+                <li><b>Local (<span class="code-chip">/l</span> or <span class="code-chip">/-</span>):</b> 500-block radius (covers the entire dimension inside Vaults) &bull; Yellow text &bull; 1s cooldown.</li>
+                <li><b>Global (<span class="code-chip">/g</span> or <span class="code-chip">/*</span>):</b> Server-wide broadcast (hidden in Vaults) &bull; White text &bull; Requires Plebeian+ &bull; 5s cooldown.</li>
+                <li><b>Help (<span class="code-chip">/ajuda</span> or <span class="code-chip">/aj</span>):</b> Newbie assistance and guide discussions &bull; Magenta text &bull; General guide on <span class="code-chip">/guia</span>.</li>
+                <li><b>Trade (<span class="code-chip">/cc</span> or <span class="code-chip">/tradechat</span>):</b> Marketplace advertisements and deals &bull; Cyan text &bull; Requires Bourgeois or License.</li>
+                <li><b>Sticky Channel vs Quick Msg:</b> Typing just <span class="code-chip">/g</span> locks your chat channel; typing <span class="code-chip">/g &lt;msg&gt;</span> sends a one-time message. Toggle channel visibility in <span class="code-chip">/menu</span>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Combat Tag & AFK Mode</span></div>
+            <div class="system-content">
+              <p>Fair engagement timers and protected idle status:</p>
+              <ul>
+                <li><b>Combat Tag (10s):</b> Dealing or receiving damage starts a 10s combat timer shown on your sidebar. During combat, <b>all teleport commands are strictly blocked</b>.</li>
+                <li><b>Home Warmup:</b> Motionless wait timer for `/home` scales from 5s down to 0s based on Title. Moving cancels the teleport.</li>
+                <li><b>AFK Mode (<span class="code-chip">/afk</span>):</b> Freezes your avatar and grants 100% immunity to all damage and knockback. Automatically breaks upon WASD movement, jumping, or attacking.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="system-card">
+            <div class="system-card-title"><span>Showcase & Overhauled Auction House (/ah)</span></div>
+            <div class="system-content">
+              <p>Premium item exchange for high-tier gear and Vault jewels:</p>
+              <ul>
+                <li><b>Permanent BIN Showcase:</b> List items at fixed 'Buy It Now' prices without arbitrary expiration timers; goods stay listed until sold.</li>
+                <li><b>Timed Bid Auctions:</b> Optional classical bidding auctions for high-stakes competition.</li>
+                <li><b>Tiered Listing Slots:</b> Ranges from 3 slots (Outsider) up to 30 slots (Marquess VIP).</li>
+                <li><b>Access:</b> Browse public listings at the Spawn NPC or access remotely from anywhere with <span class="code-chip">/ah menu</span> (Marquess VIP exclusive).</li>
               </ul>
             </div>
           </div>
@@ -1870,38 +2065,12 @@
           <div class="system-card">
             <div class="system-card-title"><span>Vault Isolation Mechanics</span></div>
             <div class="system-content">
-              <p>Server-side enforcements designed to preserve competitive integrity and survival focus:</p>
+              <p>Preserving competitive integrity and survival focus inside the Vault dimension:</p>
               <ul>
-                <li><b>Vault Chat Mute:</b> Inside the <span class="code-chip">the_vault</span> dimension, global public chat is muted to allow maximum focus during your 25-minute run. Private tells (<span class="code-chip">/msg</span>) and emergency broadcasts remain visible.</li>
-                <li><b>Teleport Restrictions:</b> All teleport commands (<span class="code-chip">/home</span>, <span class="code-chip">/tpa</span>, <span class="code-chip">/rtp</span>, <span class="code-chip">/spawn</span>) are strictly forbidden into or out of any active Vault.</li>
-                <li><b>Preventive Lockout (-30m):</b> 30 minutes prior to any scheduled server restart, opening new Vault portals is locked to prevent restart deaths.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="system-card">
-            <div class="system-card-title"><span>Land Claims (FLAN) & Economy</span></div>
-            <div class="system-content">
-              <p>Grief-prevention and anti-theft land claiming in the Vanilla overworld:</p>
-              <ul>
-                <li><b>Claiming Tool:</b> Use the official FLAN tool to mark the boundary corners of your property.</li>
-                <li><b>Purchasing Blocks:</b> Execute <span class="code-chip">/buyclaim &lt;amount&gt;</span>.</li>
-                <li><b>Cost:</b> <b>$1</b> per claim block acquired. Funds flow directly into the <b>Server Treasury</b> to support community growth.</li>
-                <li><b>Trust Management:</b> Safely grant container and build permissions to trusted teammates through the FLAN interface.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="system-card">
-            <div class="system-card-title"><span>Rank-Scaled Dynamic Teleports</span></div>
-            <div class="system-content">
-              <p>Stillness warmup times and cooldown timers scale down aggressively with player progression:</p>
-              <ul>
-                <li><b>Unranked (Newcomers):</b> 5-second motionless warmup &bull; 5-minute cooldown.</li>
-                <li><b>Ranks F to D:</b> 4 to 3-second warmup &bull; reduced cooldown.</li>
-                <li><b>Ranks C to A:</b> 2 to 1-second warmup &bull; 2 to 1-minute cooldown.</li>
-                <li><b>Ranks S & Above:</b> <b>0 Seconds (Instant Teleport)</b> &bull; 30-second cooldown.</li>
-                <li><b>Cancellation:</b> Moving or receiving damage during warmup immediately cancels the request.</li>
+                <li><b>Global Chat Silenced:</b> Inside <span class="code-chip">the_vault</span>, global chatter is muted to keep you immersed during your 25-minute run. Local chat (<span class="code-chip">/l</span>) spans the whole dungeon.</li>
+                <li><b>Party Anti-Exploit:</b> Party creation and invites (<span class="code-chip">/party</span>) are locked once a Vault's timer begins ticking.</li>
+                <li><b>Strict Teleport Lockdown:</b> All teleports into or out of Vaults are 100% forbidden.</li>
+                <li><b>Restart Safety Lock (-30m):</b> Opening new Vault portals is locked 30 minutes before any scheduled server reboot.</li>
               </ul>
             </div>
           </div>
@@ -1910,13 +2079,14 @@
         schedContainer.innerHTML = `
           <div class="system-card-title"><span>Automated Daily Restart Schedule (UTC-3 / BRT)</span></div>
           <div class="system-content">
-            <p>To maintain peak server TPS and memory efficiency, automated restarts execute daily at <b>03:00</b> and <b>15:00 BRT</b>:</p>
+            <p>To maintain peak server TPS and memory efficiency, automated restarts execute daily at <b>01:00</b> and <b>14:00 BRT</b>:</p>
             <ul>
-              <li><b>-30 Minutes:</b> Audible broadcast chime and preventive lock on new Vault portals.</li>
+              <li><b>-30 Minutes:</b> Audible broadcast chime and preventive lock on opening new Vault portals.</li>
               <li><b>-10 & -5 Minutes:</b> Countdown reminders advising players to secure positions at base.</li>
               <li><b>-1 Minute:</b> Final warning bell chime.</li>
               <li><b>-10 Seconds:</b> On-screen visual title countdown.</li>
-              <li><b>Anti-Dupe Safety Protocol:</b> Enforced synchronous inventory saving (<span class="code-chip">save-all</span>), graceful disconnect, and automated service reboot.</li>
+              <li><b>Every Friday at 01:00 BRT:</b> Weekly recalibration of bank interest, investment dividends, and fluctuating server shop pricing.</li>
+              <li><b>Anti-Dupe Safety Protocol:</b> Enforced synchronous inventory saving (<span class="code-chip">save-all</span>), graceful player disconnect, and automated service reboot.</li>
             </ul>
           </div>
         `;
@@ -1927,30 +2097,65 @@
     // BILINGUAL ADAPTED COMMANDS TABLE
     // ========================================================
     const SERVER_COMMANDS_PT = [
-      { cmd: "/register <senha> <confirmarSenha>", desc: "Registra sua senha no servidor no primeiro acesso.", rest: "Requer no mínimo 4 caracteres." },
-      { cmd: "/login <senha>", desc: "Autentica sua conta em caso de alteração de IP.", rest: "Sessão é mantida via IP inteligente." },
-      { cmd: "/sethome [nome]", desc: "Salva a localização atual como ponto de retorno.", rest: "Proibido dentro de dimensões de Vault." },
-      { cmd: "/home [nome]", desc: "Teleporta o jogador para sua base salva.", rest: "Sujeito ao warmup e cooldown do seu rank." },
-      { cmd: "/tpa <jogador>", desc: "Envia solicitação amigável de teleporte para outro player.", rest: "Alvo precisa aceitar com /tpaccept." },
-      { cmd: "/tpaccept", desc: "Aceita a última solicitação de teleporte recebida.", rest: "Inicia o contador de warmup do emissor." },
+      { cmd: "/register <senha> <confirmarSenha>", desc: "Registra sua senha no servidor no primeiro acesso.", rest: "Mínimo de 4 caracteres." },
+      { cmd: "/login <senha>", desc: "Autentica sua conta em caso de alteração de IP.", rest: "Persistente via IP seguro inteligente." },
+      { cmd: "/menu", desc: "Abre o menu interativo com perfil, economia, teleportes e opções de chat.", rest: "Nenhum." },
+      { cmd: "/sethome [nome]", desc: "Salva a localização atual como ponto de retorno.", rest: "Proibido em dimensões de Vault." },
+      { cmd: "/home [nome]", desc: "Teleporta para sua base salva com warmup baseado no título.", rest: "Cancelado se mover ou estiver em combate." },
+      { cmd: "/spawn", desc: "Teleporta ao centro comunitário do Overworld.", rest: "Sujeito a warmup e bloqueado em combate." },
+      { cmd: "/tpa <jogador>", desc: "Envia solicitação amigável de teleporte para outro jogador.", rest: "Alvo precisa aceitar com /tpaccept." },
+      { cmd: "/tpaccept", desc: "Aceita a solicitação de teleporte pendente.", rest: "Inicia o warmup do emissor." },
       { cmd: "/tpdeny", desc: "Recusa a solicitação de teleporte pendente.", rest: "Cancela a fila de teleporte." },
-      { cmd: "/spawn", desc: "Retorna ao centro do mundo e ponto comunitário.", rest: "Sujeito a cooldown de teleporte." },
-      { cmd: "/comprarclaim <quantidade>", desc: "Adquire blocos adicionais de proteção de terreno FLAN.", rest: "Custo de $1 por bloco via carteira." },
-      { cmd: "/msg <jogador> <texto>", desc: "Envia mensagem privada direta para outro jogador online.", rest: "Funciona mesmo para jogadores dentro da Vault." }
+      { cmd: "/bal top", desc: "Exibe o ranking dos jogadores mais ricos (carteira, banco e cotas).", rest: "Inclui jogadores online e offline." },
+      { cmd: "/rank top", desc: "Exibe o ranking dos maiores desbravadores e níveis de Vault.", rest: "Consulta global de todos os jogadores." },
+      { cmd: "/titulo [comprar|info]", desc: "Consulta benefícios ou avança na hierarquia social de títulos.", rest: "Requer saldo correspondente." },
+      { cmd: "/licenca [comprar]", desc: "Adquire Licença de Mercador para criar lojas de baú e usar /cc.", rest: "Custa $200.000 (requer Burguês+)." },
+      { cmd: "/g [mensagem]", desc: "Alterna para o Chat Global ou envia mensagem rápida a todos.", rest: "Requer título Plebeu+ (cooldown 5s)." },
+      { cmd: "/l [mensagem]", desc: "Alterna para o Chat Local ou envia mensagem rápida (500 blocos).", rest: "Em Vaults cobre a dimensão inteira." },
+      { cmd: "/ajuda [mensagem]", desc: "Canal de dúvidas para iniciantes e ajudantes da comunidade.", rest: "Cooldown de 1s." },
+      { cmd: "/cc [mensagem]", desc: "Canal comercial para anúncios de lojas, compras e vendas.", rest: "Requer Licença ou Burguês+." },
+      { cmd: "/guia", desc: "Abre a central de ajuda e informações do servidor.", rest: "Nenhum." },
+      { cmd: "/sellall", desc: "Vende todos os itens elegíveis do inventário para a Loja Pública.", rest: "Vende lotes exatos sem engolir sobras." },
+      { cmd: "/claims / /iptu", desc: "Gerencia seus terrenos FLAN, dias restantes de imposto e cobranças.", rest: "Nenhum." },
+      { cmd: "/buyclaimblocks <qtd>", desc: "Adquire blocos adicionais de claim FLAN ($1 por bloco).", rest: "Debitado da carteira para o Tesouro." },
+      { cmd: "/afk", desc: "Ativa modo ausente com imunidade total a dano e repulsão.", rest: "Cancelado ao andar, pular ou bater." },
+      { cmd: "/ah / /ah browse", desc: "Acessa a Vitrine permanente de itens e leilões no Spawn.", rest: "Pelo NPC no Spawn." },
+      { cmd: "/ah menu", desc: "Acesso remoto portátil à Vitrine de itens e leilões.", rest: "Exclusivo para Marquês VIP." },
+      { cmd: "/keepinventory", desc: "Alterna a retenção de inventário após a morte.", rest: "Exclusivo para Marquês VIP." },
+      { cmd: "/maq", desc: "Consulta dias e horas restantes da assinatura VIP Marquês.", rest: "Exclusivo para Marquês VIP." },
+      { cmd: "/msg <jogador> <texto>", desc: "Envia mensagem privada direta para outro jogador online.", rest: "Funciona mesmo para jogadores em Vaults." }
     ];
 
     const SERVER_COMMANDS_EN = [
-      { cmd: "/register <password> <confirmPassword>", desc: "Registers your account password on first join.", rest: "Requires at least 4 characters." },
+      { cmd: "/register <password> <confirmPassword>", desc: "Registers your account password on first join.", rest: "Minimum 4 characters." },
       { cmd: "/login <password>", desc: "Authenticates your session if connecting from a new IP.", rest: "Persistent via smart IP auto-login." },
+      { cmd: "/menu", desc: "Opens interactive menu with profile, economy, teleports, and chat toggles.", rest: "None." },
       { cmd: "/sethome [name]", desc: "Saves current coordinates as a personal home waypoint.", rest: "Forbidden inside Vault dimensions." },
-      { cmd: "/home [name]", desc: "Teleports you back to your saved home base.", rest: "Subject to rank warmup & cooldown." },
+      { cmd: "/home [name]", desc: "Teleports to saved home with title-scaled warmup delay.", rest: "Cancelled on movement or during combat." },
+      { cmd: "/spawn", desc: "Teleports back to the central overworld spawn point.", rest: "Subject to warmup and blocked in combat." },
       { cmd: "/tpa <player>", desc: "Sends a friendly teleport request to another online player.", rest: "Target must confirm with /tpaccept." },
-      { cmd: "/tpaccept", desc: "Accepts the most recent pending incoming teleport request.", rest: "Starts the sender's motionless warmup timer." },
+      { cmd: "/tpaccept", desc: "Accepts the most recent incoming teleport request.", rest: "Starts the sender's warmup timer." },
       { cmd: "/tpdeny", desc: "Declines a pending incoming teleport request.", rest: "Cancels teleport queue immediately." },
-      { cmd: "/spawn", desc: "Teleports back to the central overworld spawn point.", rest: "Subject to teleport cooldown." },
-      { cmd: "/buyclaim <amount>", desc: "Purchases additional land claim blocks via FLAN.", rest: "$1 per block deducted from balance." },
-      { cmd: "/msg <player> <text>", desc: "Sends a private direct whisper to an online player.", rest: "Permitted even to players inside Vaults." }
+      { cmd: "/bal top", desc: "Displays leaderboard of richest players (wallet, bank, shares).", rest: "Includes both online and offline accounts." },
+      { cmd: "/rank top", desc: "Displays leaderboard of top Vault adventurers and levels.", rest: "Global player statistics." },
+      { cmd: "/titulo [comprar|info]", desc: "View benefits or advance your Nobility Title tier.", rest: "Requires corresponding balance." },
+      { cmd: "/licenca [comprar]", desc: "Purchases Merchant License to build ChestShops and use /cc.", rest: "Costs $200k (requires Bourgeois+)." },
+      { cmd: "/g [message]", desc: "Switches to Global Chat or sends quick broadcast.", rest: "Requires Plebeian+ (5s cooldown)." },
+      { cmd: "/l [message]", desc: "Switches to Local Chat or sends quick message (500 blocks).", rest: "Spans entire dimension inside Vaults." },
+      { cmd: "/ajuda [message]", desc: "Dedicated channel for newcomers and experienced helpers.", rest: "1s cooldown." },
+      { cmd: "/cc [message]", desc: "Commercial channel for shop advertisements and trade deals.", rest: "Requires Merchant License or Bourgeois+." },
+      { cmd: "/guia", desc: "Opens the server information guide and documentation.", rest: "None." },
+      { cmd: "/sellall", desc: "Instantly liquidates all eligible inventory items to Server Shop.", rest: "Consumes exact batches with zero loss." },
+      { cmd: "/claims / /iptu", desc: "Manages your FLAN claims, tax status, and remaining time.", rest: "None." },
+      { cmd: "/buyclaimblocks <amt>", desc: "Purchases additional FLAN claim blocks ($1 per block).", rest: "Deducted from wallet into Treasury." },
+      { cmd: "/afk", desc: "Enters idle mode with 100% immunity to damage and knockback.", rest: "Cancelled on movement, jumping or hitting." },
+      { cmd: "/ah / /ah browse", desc: "Opens the permanent BIN Showcase and Auction House.", rest: "At Spawn NPC." },
+      { cmd: "/ah menu", desc: "Portable remote access to Showcase and Auction House.", rest: "Exclusive to Marquess VIP." },
+      { cmd: "/keepinventory", desc: "Toggles keep-inventory upon death.", rest: "Exclusive to Marquess VIP." },
+      { cmd: "/maq", desc: "Checks remaining days and hours on Marquess VIP membership.", rest: "Exclusive to Marquess VIP." },
+      { cmd: "/msg <player> <text>", desc: "Sends a private direct whisper to an online player.", rest: "Works even for players inside Vaults." }
     ];
+
 
     function renderCommandTable() {
       const tbody = document.getElementById("commandTableBody");
