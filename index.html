@@ -1178,6 +1178,8 @@
         footer_rights: "VH - Manzi • Servidor & Compêndio Técnico da Comunidade • 2026",
         footer_disclaimer: "Vault Hunters é um projeto criado por Iskall85 e equipe Vault Hunters. Não afiliado à Mojang ou Microsoft.",
         status_online: "ONLINE - Servidor em Operação",
+        status_offline: "OFFLINE - Servidor Desligado",
+        status_starting: "INICIANDO - Carregando Mods e Dimensões",
         status_players: "Jogadores"
       },
       en: {
@@ -1236,6 +1238,8 @@
         footer_rights: "VH - Manzi • Community Server & Technical Compendium • 2026",
         footer_disclaimer: "Vault Hunters is created by Iskall85 and the Vault Hunters team. Not affiliated with Mojang or Microsoft.",
         status_online: "ONLINE - Server Running",
+        status_offline: "OFFLINE - Server Stopped",
+        status_starting: "STARTING - Loading Mods & World",
         status_players: "Players"
       }
     };
@@ -2236,7 +2240,7 @@
     }
 
     // ========================================================
-    // REAL-TIME SERVER STATUS PING (DIRECT PORT 9065)
+    // REAL-TIME SERVER STATUS PING (DIRECT PORT 9000)
     // ========================================================
     async function queryLiveServerStatus() {
       const liveDot = document.getElementById("liveDot");
@@ -2244,12 +2248,15 @@
       const livePlayerPill = document.getElementById("livePlayerPill");
       const dict = I18N[currentLang] || I18N.pt;
 
-      const targetEndpoint = "https://api.mcstatus.io/v2/status/java/169.155.122.64:9065";
+      const targetEndpoint = "https://api.mcstatus.io/v2/status/java/199.115.79.105:9000";
 
       try {
         const res = await fetch(targetEndpoint);
         if (res.ok) {
           const data = await res.json();
+          const motdClean = (data.motd && data.motd.clean) ? data.motd.clean.toLowerCase() : "";
+          const isStarting = !data.online && (motdClean.includes("starting") || motdClean.includes("iniciando"));
+
           if (data.online) {
             liveDot.style.background = "#10b981";
             liveDot.style.boxShadow = "0 0 10px #10b981";
@@ -2257,15 +2264,24 @@
             liveStatusText.style.color = "#34d399";
             livePlayerPill.innerHTML = `${dict.status_players}: <b>${data.players.online} / ${data.players.max}</b>`;
             return;
+          } else if (isStarting) {
+            liveDot.style.background = "#f59e0b";
+            liveDot.style.boxShadow = "0 0 10px #f59e0b";
+            liveStatusText.innerText = dict.status_starting || "INICIANDO - Carregando Mods e Dimensões";
+            liveStatusText.style.color = "#fbbf24";
+            livePlayerPill.innerHTML = `${dict.status_players}: <b>Iniciando...</b>`;
+            return;
           }
         }
       } catch (e) {
         console.warn("[Status] mcstatus ping error:", e);
       }
 
-      liveDot.style.background = "#10b981";
-      liveStatusText.innerText = dict.status_online;
-      livePlayerPill.innerHTML = "vh-manzi.net";
+      liveDot.style.background = "#ef4444";
+      liveDot.style.boxShadow = "0 0 10px #ef4444";
+      liveStatusText.innerText = dict.status_offline || "OFFLINE - Servidor Desligado";
+      liveStatusText.style.color = "#f87171";
+      livePlayerPill.innerHTML = `${dict.status_players}: <b>0 / 20</b>`;
     }
 
     // ========================================================
